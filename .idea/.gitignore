@@ -6,3 +6,12 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# me add
+db.sqlite3
+
+venv/
+
+# Pycharm
+.idea/
+migrations/
