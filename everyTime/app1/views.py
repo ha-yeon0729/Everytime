@@ -54,3 +54,6 @@ def login(request):
 
 def select(request):
     return render(request,"select.html")
+
+def signup(request):
+    return render(request,"signup.html")
