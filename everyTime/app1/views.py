@@ -1,56 +1,66 @@
+import platform
 from django.shortcuts import render
 from bs4 import BeautifulSoup
-import requests as req
+from selenium import webdriver
 from django.views.decorators.csrf import csrf_exempt
-from fake_useragent import UserAgent
 from time import sleep
 
+#def f_login(request):
+    #회원가입 db완성 후 로그인 시 id pw 받아와서 db랑 비교 후 일치 하면 다음 페이지로이동 아닐 시 예외 처리
+
+def home(request):
+    return render(request, 'login.html')
 @csrf_exempt
-def login(request):
+
+#------------------------------------시간표 crawling 부분(selenium)-------------------------------------------------
+
+def login(request): #추후 시간표 크롤링함수로 이름 변경
     if request.method == "POST":
-        # 로그인 정보(개발자 도구)
-        login_info = {
-            'userid': request.POST['userid'],  # 개인 아이디 입력
-            'password': request.POST['userpw'],  # 비밀번호 입력
-            'redirect': '/'
-        }
+        # 로그인 url
+        url = 'https://everytime.kr/login'
 
-        # 헤더 정보
-        headers = {
-            'User-agent': UserAgent().chrome,
-            'Referer': 'https://everytime.kr/'
-        }
+        options = webdriver.ChromeOptions()
 
-        # 로그인 URL
-        baseUrl = 'https://everytime.kr/user/login'
+        # 크롤러 실행 시 로그노출 안되도록 option 설정
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-        with req.session() as s:
-            # Request(로그인 시도)
-            res = s.post(baseUrl, login_info, headers=headers)
-            sleep(3)
+        #개발용-코드
+        if platform.system() == 'Windows':
+            user_id = request.POST.get('userid')  # 개인 아이디 입력
 
-            # 로그인 시도 실패시 예외
-            if res.status_code != 200:
-                raise Exception("Login failed.")
+            user_pw = request.POST.get('userpw')  # 비밀번호 입력
 
-            # 로그인 성공 후 세션 정보를 가지고 페이지 이동
-            res = s.get('https://everytime.kr/', headers=headers)
-            sleep(3)
+            driver = webdriver.Chrome('C:\chromedriver.exe', options=options)
 
-            # 페이지 이동 후 수신 데이터 확인
-            # print(res.text)
+            driver.get(url)
 
-            # bs4 초기화
-            soup = BeautifulSoup(res.text, "html.parser")
+            # id값으로 ID,Password 입력창을 찾아준 후 값 입력
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
+
+            sleep(1)
+
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
+
             sleep(2)
-        try:
-            # 로그인 성공 여부 체크
-            name = soup.find('p', class_='school').string
-            print('success')  ##성공시 success출력
-        except:
-            print('try again')  # 실패 시 try again출력
 
-    return render(request, "login.html")
+            # 로그인 버튼 클릭
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[3]/input').click()
+
+            sleep(2)
+
+            # 로그인 성공여부 확인 및 예외처리
+            try:
+                driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
+
+            except:
+                driver.quit()
+                return 'err'
+
+            driver.quit()
+
+            return render(request, "select.html")
+
+
 
 def select(request):
-    return render(request,"select.html")
+    return render(request, "select.html")
