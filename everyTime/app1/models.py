@@ -1,6 +1,6 @@
 from django.db import models
 
-class signup(models.Model):
+class member(models.Model):
     etaId=models.CharField(max_length=20)
     etaPw=models.CharField(max_length=30)
     ssgId=models.CharField(max_length=20)

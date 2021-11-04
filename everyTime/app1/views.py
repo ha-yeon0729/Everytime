@@ -6,8 +6,7 @@ from selenium import webdriver
 from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 
-
-from .models import signup
+from .models import member
 
 #def f_login(request):
     #회원가입 db완성 후 로그인 시 id pw 받아와서 db랑 비교 후 일치 하면 다음 페이지로이동 아닐 시 예외 처리
@@ -16,9 +15,7 @@ from .models import signup
 #------------------------------------시간표 crawling 부분(selenium)-------------------------------------------------
 
 def login(request): #추후 시간표 크롤링함수로 이름 변경
-    print("login")
     if request.method == "POST":
-        print("A")
         def start2time(start):
             base = 900
             off_set = int(((start - 450) / 25) * 50)
@@ -37,14 +34,7 @@ def login(request): #추후 시간표 크롤링함수로 이름 변경
 
         # 로그인 url
         url = 'https://everytime.kr/login'
-
         options = webdriver.ChromeOptions()
-
-        #크롬드라이버에 접근 안돼서 추가 - 하연
-        options.add_argument("--single-process")
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
 
         # 크롤러 실행 시 로그노출 안되도록 option 설정
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -52,12 +42,11 @@ def login(request): #추후 시간표 크롤링함수로 이름 변경
         user_id = request.POST['userid']  # 개인 아이디 입력
 
         user_pw = request.POST['userpw']  # 비밀번호 입력
-        print(user_id)
 
-        driver = webdriver.Chrome('/mnt/c/chromedriver', options=options)
+        driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
 
         driver.get(url)
-
+        driver.set_window_size(1024, 630)
         # id값으로 ID,Password 입력창을 찾아준 후 값 입력
         driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
 
@@ -114,13 +103,28 @@ def login(request): #추후 시간표 크롤링함수로 이름 변경
         return render(request,"select.html")
     else:
         return render(request, 'login.html')
-
+@csrf_exempt
 def select(request):
     return render(request,"select.html")
-
+@csrf_exempt
 def signup(request):
-    if request.method=="POST":
-        return render(request,"signup.html")
+    if 'check' in request.POST:
 
+        print("check")
+    elif 'signup' in request.POST:
+        member.objects.ssgId=request.POST["ssgid"]
+        member.objects.ssgPw=request.POST["ssgpw"]
+        print(request.POST["ssgid"])
+        print("signup")
+    else:
+        print("nothing!!")
+    return render(request,"signup.html")
+@csrf_exempt
 def check(request):
     return render(request,"check.html")
+@csrf_exempt
+def authentic(request):
+    if request.method=="POST":
+        print("check")
+    else:
+        print("NO")
