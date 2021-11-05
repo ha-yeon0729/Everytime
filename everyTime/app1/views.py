@@ -6,6 +6,7 @@ from selenium import webdriver
 from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 
+from django.contrib import messages
 from .models import member
 
 #def f_login(request):
@@ -100,28 +101,71 @@ def login(request): #추후 시간표 크롤링함수로 이름 변경
         driver.close()
         driver.quit()
         print("성공")
-        return render(request,"select.html")
+        return render(request, "select.html")
     else:
         return render(request, 'login.html')
+
 @csrf_exempt
 def select(request):
     return render(request,"select.html")
+
 @csrf_exempt
 def signup(request):
     if 'check' in request.POST:
+        # 로그인 url
+        url = 'https://everytime.kr/login'
+        print("1")
+        options = webdriver.ChromeOptions()
 
-        print("check")
-    elif 'signup' in request.POST:
-        member.objects.ssgId=request.POST["ssgid"]
-        member.objects.ssgPw=request.POST["ssgpw"]
-        print(request.POST["ssgid"])
-        print("signup")
+        # 크롤러 실행 시 로그노출 안되도록 option 설정
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+        # 개발용-코드
+
+        user_id = request.POST.get('etaid')  # 개인 아이디 입력
+        print("2")
+        user_pw = request.POST.get('etapw')  # 비밀번호 입력
+
+        driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
+
+        driver.get(url)
+
+        # id값으로 ID,Password 입력창을 찾아준 후 값 입력
+        driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
+
+        sleep(1)
+
+        driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
+        print("3")
+        sleep(2)
+
+        # 로그인 버튼 클릭
+        driver.find_element_by_xpath('//*[@id="container"]/form/p[3]/input').click()
+
+        # 로그인 성공여부 확인 및 예외처리
+        try:
+            driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
+            messages.error(request,'에브리타임 아이디와 비밀번호가 확인되었습니다!')
+            print("4")
+        except:
+            driver.quit()
+            #return 'err'
+            messages.error(request, '에브리타임에 로그인 할 수 없습니다!')
+            return render(request, "signup.html")
+
+        driver.quit()
+        print("5")
+        messages.error(request, '정상적으로 회원가입이 되었습니다!')
+        return redirect('/signup')
+
     else:
-        print("nothing!!")
-    return render(request,"signup.html")
+        return render(request,"signup.html")
+
+
 @csrf_exempt
 def check(request):
     return render(request,"check.html")
+
 @csrf_exempt
 def authentic(request):
     if request.method=="POST":
