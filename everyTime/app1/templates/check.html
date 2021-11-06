@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+    <div class="span3">
+        <form method="POST">
+    <h2>Sign Up</h2>
+        {% csrf_token %}
+            <label><strong>에브리타임 아이디</strong></label>
+    <input type="text"  name="etaid" class="span3" required/>
+            <label><strong>에브리타임 비밀번호</strong></label>
+    <input type="password" name="etapw" class="span3" required/>
+            <progress id="progress" value="0.75" max="1">75%</progress>
+            <input type="reset" value="초기화">
+    <input type="submit" value="check" name="check" class="btn btn-primary pull-right">
+    </form>
+    </div>
 </body>
 </html>
