@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>엑셀파일크롤링</title>
+    <script>
+        function tableCreate() {
+            var html = '';
+            var name = $("#name").val();
+
+            html += '<tr>';
+            html += '<td>' + name + '</td>';
+            html += '<td><input type="file" accept=".xlsx"></td>';
+            html += '<td><button onclick="tableDelete(this)" id="remove">삭제</button></td>';
+            html += '</tr>';
+
+            $("#dynamicTable").append(html);
+
+            $("#name").val('');
+            $("#excel").val('');
+        }
+		function tableDelete(obj){
+			var tr = $(obj).parent().parent();
+			tr.remove();
+
+        }
+    </script>
+
+
+</head>
+<body>
+<form action="../excelfile/" method="POST" enctype="multipart/form-data" >
+{% csrf_token %}
+    <table border="1px" id="dynamicTable">
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">엑셀파일</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" id="name"></td>
+            <td><input type="file" name="excel" accept=".xlsx"></td>
+            <td><button onclick="tableCreate()">테이블추가</button></td>
+        </tr>
+    </table>
+    <input type='submit' value='업로드' style="margin:2.5rem 0 2rem 0;"class="btn btn-warning">
+</form>
+</body>
+</html>

@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        h1{text-align:center;}
+
+    body{background-color:darksalmon;}
+    .font-color{
+        color: white;
+    }
+p {
+  animation-duration: 8s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: -10%;
+    width: 300%
+  }
+
+  to {
+    margin-left: -70%;
+    width: 100%;
+  }
+}
+#btn{
+    margin:auto;
+    display:block;
+}
+
+    </style>
 </head>
 <body>
-    <a href ="/login" >로그인</a>
+
+<h1 class="font-color">
+    <p>WELCOME!!!!</p>
+</h1>
+<button type="button" onclick="location.href='/login'" class="btn btn-danger" id="btn">로그인</button>
 </body>
 </html>

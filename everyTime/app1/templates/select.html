@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
         <style>
@@ -10,16 +13,22 @@
         </style>
 </head>
 <body>
-    <h1>Find gong-gang에 오신 걸 환영합니다!</h1>
+    <h1>친구를 선택해주세요!</h1>
   <hr>
 <h2>
     {{ ID }}님의 친구 목록입니다.
 </h2>
+    <form action="../gongang/" method=post>
+   {% for p in friends %}
     <div class="checkbox">
         <label>
-            <input type="checkbox" value="">
-            ddun
+            <input type="checkbox" value={{ p.friend_name }} name="selected">
+            {{ p.friend_name }}
         </label>
     </div>
+    {% endfor %}
+ <button type="button" onclick="location.href='../crawl'"  class="btn btn-success">친구목록 불러오기</button>
+    <button type="submit" class="btn btn-primary pull-right">공강 시간 구하기</button>
+    </form>
 </body>
 </html>

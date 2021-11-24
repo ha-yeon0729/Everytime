@@ -1,161 +1,85 @@
-import re
-import pandas as pd
 from django.shortcuts import render, redirect
-from bs4 import BeautifulSoup
+from pandas.tests.io.excel.test_openpyxl import openpyxl
 from selenium import webdriver
 from django.views.decorators.csrf import csrf_exempt
 from time import sleep
-
-from django.contrib.auth.models import User
-from django.contrib import auth
+import pandas as pd
 from django.contrib import messages
 from .models import member
-from django.http import HttpResponse
+from .models import friend
+from .models import excel_db
 
 #def f_login(request):
     #회원가입 db완성 후 로그인 시 id pw 받아와서 db랑 비교 후 일치 하면 다음 페이지로이동 아닐 시 예외 처리
-
 @csrf_exempt
 #------------------------------------시간표 crawling 부분(selenium)-------------------------------------------------
-
 def index(request):
     return render(request,"index.html")
-
+@csrf_exempt
 def login(request):
+
     if request.method=="POST":
-        userid=request.POST["userid"]
-        userpw=request.POST["userpw"]
-        #해당 userid,userpw와 일치하는 user객체를 가져온다.
-        user=auth.authenticate(request,username=userid,password=userpw)
+        ssgid=request.POST.get("userid")
+        ssgpw=request.POST.get("userpw")
 
-        #해당 user 객체가 존재한다면
-        if user is not None:
-            request.session['Id']=userid
-            auth.login(request,user)    #로그인한다
-            print("로그인 성공")
-            return redirect('select')
-
-        #존재하지 않는다면
+        if not (ssgid and ssgpw):
+            messages.warning(request, "로그인에 실패했습니다!")
+            return render(request, 'login.html')
         else:
-            # 딕셔너리에 에러메세지를 전달하고 다시 login.html화면으로 돌아감
-            return render(request,'login.html'),{'error':'로그인 정보가 잘못되었습니다!'}
+            #해당 userid,userpw와 일치하는 user객체를 가져온다.
+            user=member.objects.get(ssgId=ssgid,ssgPw=ssgpw)
+            #해당 user 객체가 존재한다면
+            if user is not None:
+                request.session['name']=user.name
+                request.session['ETAID'] = user.etaId   #에타 아이디 세션 생성
+                request.session["ETAPW"]=user.etaPw     #에타 비번 세션 생성
+                request.session['FGID']=user.ssgId      #FG 아이디 세션 생성
 
+                #print("웹아이디 :"+request.session['FGID'])    #확인용
+                #print("에타 아이디 :"+request.session['ETAID']) #확인용
+                return redirect('button')
+
+            #존재하지 않는다면
+            else:
+                # login.html화면으로 돌아감
+
+                messages.warning(request, "로그인에 실패했습니다!")
+                return render(request,'login.html')
     # 처음 이 페이지로 왔을 때
     else:
         return render(request,'login.html')
 
-
-def crawling(request): #추후 시간표 크롤링함수로 이름 변경
-    if request.method == "POST":
-        def start2time(start):
-            base = 900
-            off_set = int(((start - 450) / 25) * 50)
-            base += off_set
-            if base % 100 != 0:
-                base -= 20
-            return base
-
-        def class_len2time(class_len):
-            base = 100
-            off_set = int(((class_len - 51) / 25) * 50)
-            base += off_set
-            if base % 100 != 0:
-                base -= 20
-            return base
-
-        # 로그인 url
-        url = 'https://everytime.kr/login'
-        options = webdriver.ChromeOptions()
-
-        # 크롤러 실행 시 로그노출 안되도록 option 설정
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-        user_id = request.POST['userid']  # 개인 아이디 입력
-
-        user_pw = request.POST['userpw']  # 비밀번호 입력
-
-        driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
-
-        driver.get(url)
-        driver.set_window_size(1024, 630)
-        # id값으로 ID,Password 입력창을 찾아준 후 값 입력
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
-
-        sleep(1)
-
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
-
-        sleep(2)
-
-        # 로그인 버튼 클릭
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[3]/input').click()
-
-        sleep(2)
-
-        # 로그인 성공여부 확인 및 예외처리
-        try:
-            driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
-
-        except:
-            driver.quit()
-
-        # 시간표 로딩 시간 부여
-        sleep(3)
-
-        # 현재 페이지(시간표) html불러오기
-        html = driver.page_source
-
-        soup = BeautifulSoup(html, 'html.parser')
-
-        day = ["월", "화", "수", "목", "금", ]
-
-        for i in range(2, 7):
-            value = soup.select_one(
-                '#container > div > div.tablebody > table > tbody > tr > td:nth-child(%d) > div.cols' % (i))
-            value = value.select('div')
-            print(day[i - 2])
-            for i in value:
-
-                start = str(start2time(int(re.sub(r'[^0-9]', '', i['style'][14:]))))
-                class_len = "0" + str(class_len2time(int(re.sub(r'[^0-9]', '', i['style'][0:13]))))
-                start = pd.to_datetime(start, format='%H%M')
-                class_len = pd.to_datetime(class_len, format='%I%M')
-
-                end_hour = start.hour + class_len.hour
-                end_minute = start.minute + class_len.minute
-                if end_minute >= 60:
-                    end_minute -= 60
-                    end_hour += 1
-
-                print("%d:%02d - %d:%02d" % (start.hour, start.minute, end_hour, end_minute))
-        driver.close()
-        driver.quit()
-        print("성공")
-        return render(request, "select.html")
-    else:
-        return render(request, 'login.html')
-
+@csrf_exempt
+def info(request):
+    context={
+        'ETAID':request.session['ETAID'],
+        'ETAPW':request.session["ETAPW"],
+    }
+    return context
+#------------로그인 한 후 1번방법으로 친구 목록 가져올지 2번방법으로 친구목록 가져올지 선택하는 창------------------------------
+@csrf_exempt
+def button(request):
+    return render(request,"button.html")
+#-------------------------------------------------------
 @csrf_exempt
 def select(request):
-    userid=request.session.get('Id')
-    if userid:
-        ID=member.objects.get(ssgId=userid)
-        print(ID)
+    name = request.session.get('name')
+    friends=friend.objects.filter(my_name=name)
 
+    if request.method=="POST":
+        return redirect('crawl')
+    if name:
         #Id.ssgId 하면 member DB의 ssgId(FG 아이디) 가 나오고, Id.ssgPw하면 DB의 FG비번이 나온다.
         #그냥 ID만 쓰면 제일 첫번째 값인 etaId가 나온다.
-        return render(request,'select.html',{'ID':ID.ssgId})
+        return render(request, 'select.html', {'ID': name, 'friends': friends, })
 
-    return render(request,"select.html")
-
-
+    return redirect('/login')
 @csrf_exempt
 def signup(request):
     # 입력한 아이디, 비번으로 진짜 에타에 접속이 되는지 확인 -하연
     if 'check' in request.POST:
         # 로그인 url
         url = 'https://everytime.kr/login'
-        print("1")
         options = webdriver.ChromeOptions()
 
         # 크롤러 실행 시 로그노출 안되도록 option 설정
@@ -163,10 +87,9 @@ def signup(request):
 
         # 개발용-코드
         user_id = request.POST.get('etaid')  # 개인 아이디 입력
-        print("2")
         user_pw = request.POST.get('etapw')  # 비밀번호 입력
 
-        driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
+        driver = webdriver.Chrome('/mnt/c/chromedriver', options=options)
 
         driver.get(url)
 
@@ -176,7 +99,7 @@ def signup(request):
         sleep(1)
 
         driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
-        print("3")
+
         sleep(2)
 
         # 로그인 버튼 클릭
@@ -186,7 +109,6 @@ def signup(request):
         try:
             driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
             messages.error(request,'에브리타임 아이디와 비밀번호가 확인되었습니다!')
-            print("4")
             return render(request,'signup.html',{'etaid': user_id,'etapw':user_pw})
 
         except:
@@ -198,22 +120,29 @@ def signup(request):
 
     # 에타 인증 후 FG 사이트 아이디, 비번 설정
     elif 'signup' in request.POST:
-        etaid=request.POST["etaid"]
-        etapw=request.POST["etapw"]
-        ssgid = request.POST["ssgid"]
-        ssgpw = request.POST["ssgpw"]
-        ressgpw = request.POST["ressgpw"]
+
+        etaid=request.POST.get("etaid",False)
+        etapw=request.POST.get("etapw",False)
+
+        name=request.POST.get("name",False)
+
+        ssgid = request.POST.get("ssgid",False)
+        ssgpw = request.POST.get("ssgpw",False)
+
+        ressgpw = request.POST.get("ressgpw",False)
+
+        #if (etaid==True or etapw==True or ssgid==True or ssgpw==True):
+
         if (ssgpw == ressgpw):
-            print("비번이랑 재입력 비번이랑 일치함!")
             messages.error(request, '정상적으로 회원가입이 되었습니다!')
 
             #장고에서 제공하는 DB에 FD정보만 저장(로그인기능 편리함)
-            user=User.objects.create_user(username=ssgid,password=ssgpw)
+            #user=User.objects.create_user(username=ssgid,password=ssgpw)
             #내가 만든 DB(에타정보, FD정보 둘다 저장)
-            DB=member(etaId=etaid,etaPw=etapw,ssgId=ssgid,ssgPw=ssgpw)
+            DB=member(name=name,etaId=etaid,etaPw=etapw,ssgId=ssgid,ssgPw=ssgpw)
             DB.save()
 
-            auth.login(request,user)
+            #auth.login(request,user)
             return redirect('/')
 
         else:
@@ -222,11 +151,87 @@ def signup(request):
 
     else:  # 맨 처음에 이 페이지로 들어올 때 -하연
         return render(request,"check.html")
-
+    return render(request, "check.html")
 
 @csrf_exempt
-def authentic(request):
-    if request.method=="POST":
-        print("check")
+def timetable_upload(request):
+    if request.method=='POST':
+        def class_array(class_day, class_time):
+            if class_day == '월':
+                mon.append(class_time)
+            if class_day == '화':
+                tue.append(class_time)
+            if class_day == '수':
+                wed.append(class_time)
+            if class_day == '목':
+                thur.append(class_time)
+            if class_day == '금':
+                fri.append(class_time)
+
+        excel = request.FILES['excel']
+
+        if excel.name[-4:] != 'xlsx':
+            print('err')
+            return redirect('/login/')
+
+        wb = openpyxl.load_workbook(excel)
+        ws = wb.active
+        # 불필요한 행 삭제
+        ws.delete_rows(1, 3)
+        ws.delete_cols(1, 11)
+
+        ws.delete_cols(2)
+        df = pd.DataFrame(ws.values)
+
+        # 엑셀 값에서 value값만 저장
+        class_list = list(df[0])
+
+        # 강의 시간이 없는 부분 삭제
+        class_list = list(filter(None, class_list))
+
+        mon = []
+        tue = []
+        wed = []
+        thur = []
+        fri = []
+
+        for i in class_list:
+            tmp = i.index('(')
+            class_ = i[0:tmp]
+            class_time = class_[-11:]
+            class_day = class_[0:-11]
+            for i in class_day:
+                class_array(i, class_time)
+
+        print(mon)
+        print(tue)
+        print(wed)
+        print(thur)
+        print(fri)
+
+        #DB에 이름 , 시간 저장-하연
+        name=request.session['name']
+        user_name = request.POST["name"]
+        print(name)
+        print(user_name)
+        DB=excel_db(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
+        DB.save()
+        return redirect('/gongang')
+
     else:
-        print("NO")
+        return render(request, "excel.html")
+
+@csrf_exempt
+def gongang(request):
+    if request.method=='POST':
+        selected=request.POST.getlist('selected')
+        print(selected)
+    return render(request,"gongang.html")
+
+
+def logout(request):
+    request.session.pop('name')
+    request.session.pop("ETAPW")
+    request.session.pop('ETAID')
+    request.session.pop('FGID')
+    return redirect('/login')
