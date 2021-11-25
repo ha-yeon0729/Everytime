@@ -1,24 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
+
     <meta charset="UTF-8">
     <title>Title</title>
-        <style>
-        h1{
-            text-align: center;
-        }
-        </style>
-</head>
-<body>
+    <style>
+    h1{
+        text-align: center;
+    }
+    </style>
+    </head>
+	<body>
+    <nav>
+    <a class="font-color" href="/" >처음으로</a>
+    <a class="font-color" href="/button" >방법다시선택하기</a>
+    <a href="/logout" class="font-color">로그아웃</a>
+    </nav>
     <h1>친구를 선택해주세요!</h1>
-  <hr>
 <h2>
     {{ ID }}님의 친구 목록입니다.
 </h2>
-    <form action="../gongang/" method=post>
+    <form action="../gongang/" method="post" >
    {% for p in friends %}
     <div class="checkbox">
         <label>
@@ -28,7 +33,7 @@
     </div>
     {% endfor %}
  <button type="button" onclick="location.href='../crawl'"  class="btn btn-success">친구목록 불러오기</button>
-    <button type="submit" class="btn btn-primary pull-right">공강 시간 구하기</button>
+    <button type="submit" class="btn btn-primary pull-right" onclick="select()">공강 시간 구하기</button>
     </form>
 </body>
 </html>

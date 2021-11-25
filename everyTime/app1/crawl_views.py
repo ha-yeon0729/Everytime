@@ -11,8 +11,6 @@ from .models import friend
 
 
 def crawling(request):
-    if request.method=="GET":
-        return redirect('/login')
     # 계산 시 사용할 상수
     const = 0.8333333333333333333
 

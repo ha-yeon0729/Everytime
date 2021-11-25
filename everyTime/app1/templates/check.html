@@ -1,15 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
+<!------ Include the above in your HEAD tag ---------->
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
+    <nav>
+    <a class="font-color" href="/" >처음으로</a>
+    </nav>
     <div class="span3">
         <form method="POST">
     <h2>Sign Up</h2>

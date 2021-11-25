@@ -1,9 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>엑셀파일크롤링</title>
+
     <script>
         function tableCreate() {
             var html = '';
@@ -30,6 +34,12 @@
 
 </head>
 <body>
+    <nav>
+    <a class="font-color" href="/" >처음으로</a>
+    <a class="font-color" href="/button" >방법다시선택하기</a>
+    <a href="/logout" class="font-color">로그아웃</a>
+    </nav>
+
 <form action="../excelfile/" method="POST" enctype="multipart/form-data" >
 {% csrf_token %}
     <table border="1px" id="dynamicTable">

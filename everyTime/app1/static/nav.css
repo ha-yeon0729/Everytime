@@ -1,0 +1,13 @@
+nav {
+  height: 75px;
+  padding: 1rem;
+  color: white;
+  background: indianred;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.font-color{
+    color: white;
+}

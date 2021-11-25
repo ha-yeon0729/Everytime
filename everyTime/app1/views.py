@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from pandas.tests.io.excel.test_openpyxl import openpyxl
 from selenium import webdriver
 from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 import pandas as pd
-from django.contrib import messages
+from django.contrib import messages, auth
 from .models import member
 from .models import friend
 from .models import excel_db
@@ -17,7 +18,6 @@ def index(request):
     return render(request,"index.html")
 @csrf_exempt
 def login(request):
-
     if request.method=="POST":
         ssgid=request.POST.get("userid")
         ssgpw=request.POST.get("userpw")
@@ -27,9 +27,14 @@ def login(request):
             return render(request, 'login.html')
         else:
             #해당 userid,userpw와 일치하는 user객체를 가져온다.
-            user=member.objects.get(ssgId=ssgid,ssgPw=ssgpw)
-            #해당 user 객체가 존재한다면
+            user=auth.authenticate(request,username=ssgid,password=ssgpw)
+            # 해당 user 객체가 존재한다면
+
             if user is not None:
+                auth.login(request,user)
+                #에타 정보가 저장되어 있는 member DB
+                user = member.objects.get(ssgId=ssgid, ssgPw=ssgpw)
+
                 request.session['name']=user.name
                 request.session['ETAID'] = user.etaId   #에타 아이디 세션 생성
                 request.session["ETAPW"]=user.etaPw     #에타 비번 세션 생성
@@ -42,7 +47,6 @@ def login(request):
             #존재하지 않는다면
             else:
                 # login.html화면으로 돌아감
-
                 messages.warning(request, "로그인에 실패했습니다!")
                 return render(request,'login.html')
     # 처음 이 페이지로 왔을 때
@@ -63,7 +67,7 @@ def button(request):
 #-------------------------------------------------------
 @csrf_exempt
 def select(request):
-    name = request.session.get('name')
+    name = request.session['name']
     friends=friend.objects.filter(my_name=name)
 
     if request.method=="POST":
@@ -136,14 +140,13 @@ def signup(request):
         if (ssgpw == ressgpw):
             messages.error(request, '정상적으로 회원가입이 되었습니다!')
 
-            #장고에서 제공하는 DB에 FD정보만 저장(로그인기능 편리함)
-            #user=User.objects.create_user(username=ssgid,password=ssgpw)
             #내가 만든 DB(에타정보, FD정보 둘다 저장)
             DB=member(name=name,etaId=etaid,etaPw=etapw,ssgId=ssgid,ssgPw=ssgpw)
             DB.save()
-
-            #auth.login(request,user)
-            return redirect('/')
+            #장고에서 제공하는 로그인 기능DB활용
+            user=User.objects.create_user(username=ssgid,password=ssgpw)
+            auth.login(request,user)
+            return redirect('/button')
 
         else:
             messages.error(request, '비밀번호가 다릅니다!')
@@ -225,13 +228,23 @@ def timetable_upload(request):
 def gongang(request):
     if request.method=='POST':
         selected=request.POST.getlist('selected')
-        print(selected)
-    return render(request,"gongang.html")
-
+        #DB에 저장된 친구 이름중에 있는지 확인하기
+        for i in selected:
+            selectDB=friend.objects.filter(friend_name=i)
+            for j in selectDB:
+                print(j.friend_name)
+                print(j.mon)
+                print(j.tue)
+                print(j.wed)
+                print(j.thu)
+                print(j.fri)
+        return render(request,"gongang.html")
+    return render(request,"login.html")
 
 def logout(request):
-    request.session.pop('name')
-    request.session.pop("ETAPW")
-    request.session.pop('ETAID')
-    request.session.pop('FGID')
-    return redirect('/login')
+    auth.logout(request)
+    #request.session.pop('name')
+    #request.session.pop("ETAPW")
+    #request.session.pop('ETAID')
+    #request.session.pop('FGID')
+    return redirect('/')
