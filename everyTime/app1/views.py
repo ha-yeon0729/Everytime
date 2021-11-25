@@ -9,7 +9,6 @@ from django.contrib import messages, auth
 from .models import member
 from .models import friend
 from .models import excel_db
-
 #def f_login(request):
     #회원가입 db완성 후 로그인 시 id pw 받아와서 db랑 비교 후 일치 하면 다음 페이지로이동 아닐 시 예외 처리
 @csrf_exempt
