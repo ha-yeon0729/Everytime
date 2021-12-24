@@ -8,8 +8,9 @@ from time import sleep
 import random
 import math
 from .models import friend
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 def crawling(request):
     # 계산 시 사용할 상수
     const = 0.8333333333333333333

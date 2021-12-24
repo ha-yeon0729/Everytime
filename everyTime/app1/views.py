@@ -76,7 +76,7 @@ def select(request):
         #그냥 ID만 쓰면 제일 첫번째 값인 etaId가 나온다.
         return render(request, 'select.html', {'ID': name, 'friends': friends, })
 
-    return redirect('/login')
+    return redirect('button')
 @csrf_exempt
 def signup(request):
     # 입력한 아이디, 비번으로 진짜 에타에 접속이 되는지 확인 -하연
@@ -92,7 +92,7 @@ def signup(request):
         user_id = request.POST.get('etaid')  # 개인 아이디 입력
         user_pw = request.POST.get('etapw')  # 비밀번호 입력
 
-        driver = webdriver.Chrome('/mnt/c/chromedriver', options=options)
+        driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
 
         driver.get(url)
 
@@ -157,7 +157,7 @@ def signup(request):
 
 @csrf_exempt
 def timetable_upload(request):
-    if request.method=='POST':
+    if 'upload' in request.POST:
         def class_array(class_day, class_time):
             if class_day == '월':
                 mon.append(class_time)
@@ -205,45 +205,54 @@ def timetable_upload(request):
             for i in class_day:
                 class_array(i, class_time)
 
-        print(mon)
-        print(tue)
-        print(wed)
-        print(thur)
-        print(fri)
+        #print(mon)
+        #print(tue)
+        #print(wed)
+        #print(thur)
+        #print(fri)
 
         #DB에 이름 , 시간 저장-하연
         name=request.session['name']
         user_name = request.POST["name"]
-        print(name)
-        print(user_name)
+        #print(name)
+        #print(user_name)
         DB=excel_db(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
         DB.save()
-        return redirect('/gongang')
-
-    else:
         return render(request, "excel.html")
 
+    elif 'submit' in request.POST:
+        return redirect("/gongang2")
+    else:
+        return render(request, "excel.html")
 @csrf_exempt
 def gongang(request):
     if request.method=='POST':
         selected=request.POST.getlist('selected')
+        if selected is True:
         #DB에 저장된 친구 이름중에 있는지 확인하기
-        for i in selected:
-            selectDB=friend.objects.filter(friend_name=i)
-            for j in selectDB:
-                print(j.friend_name)
-                print(j.mon)
-                print(j.tue)
-                print(j.wed)
-                print(j.thu)
-                print(j.fri)
-        return render(request,"gongang.html")
-    return render(request,"login.html")
+        #for i in selected:
+            #selectDB=friend.objects.filter(friend_name=i)
+            #for j in selectDB:
+                #print(j.friend_name)
+                #print(j.mon)
+                #print(j.tue)
+                #print(j.wed)
+                #print(j.thu)
+                #print(j.fri)
+            return render(request,"gongang.html")
+    return redirect('button')
+
 
 def logout(request):
-    auth.logout(request)
-    #request.session.pop('name')
-    #request.session.pop("ETAPW")
-    #request.session.pop('ETAID')
-    #request.session.pop('FGID')
+    print(request.session['name'])
+    try:
+        #로그인했던 ID로 저장된 excel DB들 삭제
+        record=excel_db.objects.filter(my_name=request.session['name'])
+        record.delete()
+        auth.logout(request)
+        print("deleted success!")
+    except:
+        auth.logout(request)
+        print("NO Excel file!")
+
     return redirect('/')

@@ -8,30 +8,6 @@
     <meta charset="UTF-8">
     <title>엑셀파일크롤링</title>
 
-    <script>
-        function tableCreate() {
-            var html = '';
-            var name = $("#name").val();
-
-            html += '<tr>';
-            html += '<td>' + name + '</td>';
-            html += '<td><input type="file" accept=".xlsx"></td>';
-            html += '<td><button onclick="tableDelete(this)" id="remove">삭제</button></td>';
-            html += '</tr>';
-
-            $("#dynamicTable").append(html);
-
-            $("#name").val('');
-            $("#excel").val('');
-        }
-		function tableDelete(obj){
-			var tr = $(obj).parent().parent();
-			tr.remove();
-
-        }
-    </script>
-
-
 </head>
 <body>
     <nav>
@@ -40,7 +16,7 @@
     <a href="/logout" class="font-color">로그아웃</a>
     </nav>
 
-<form action="../excelfile/" method="POST" enctype="multipart/form-data" >
+<form action="../excelfile/" method="POST" enctype="multipart/form-data" value="upload">
 {% csrf_token %}
     <table border="1px" id="dynamicTable">
         <tr>
@@ -50,10 +26,11 @@
         <tr>
             <td><input type="text" name="name" id="name"></td>
             <td><input type="file" name="excel" accept=".xlsx"></td>
-            <td><button onclick="tableCreate()">테이블추가</button></td>
+            <td><input type='submit' value="업로드" name="upload" class="btn btn-warning"></td>
+
         </tr>
     </table>
-    <input type='submit' value='업로드' style="margin:2.5rem 0 2rem 0;"class="btn btn-warning">
+    <input type='submit' name="submit" style="margin:2.5rem 0 2rem 0;"class="btn btn-warning">
 </form>
 </body>
 </html>

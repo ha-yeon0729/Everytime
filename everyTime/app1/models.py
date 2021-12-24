@@ -17,19 +17,14 @@ class member(models.Model):
 class friend(models.Model):
     my_name = models.CharField(max_length=20,null=True,default='')
     friend_name = models.CharField(max_length=20,null=True,default='')
-    mon = models.CharField(max_length=20,null=True,default='')
-    tue = models.CharField(max_length=20,null=True,default='')
-    wed = models.CharField(max_length=20,null=True,default='')
-    thu = models.CharField(max_length=20,null=True,default='')
-    fri = models.CharField(max_length=20,null=True,default='')
+    mon = models.CharField(max_length=50,null=True,default='')
+    tue = models.CharField(max_length=50,null=True,default='')
+    wed = models.CharField(max_length=50,null=True,default='')
+    thu = models.CharField(max_length=50,null=True,default='')
+    fri = models.CharField(max_length=50,null=True,default='')
 
-    #my_name=models.CharField(max_length=20)
-    #friend_name=models.CharField(max_length=20)
-    #mon=models.CharField(max_length=100)
-    #tue=models.CharField(max_length=100)
-    #wed=models.CharField(max_length=100)
-    #thu=models.CharField(max_length=100)
-    #fri=models.CharField(max_length=100)
+    def __str__(self):
+        return f'{self.pk}. {self.friend_name}'
 
 
 class excel_db(models.Model):
@@ -40,3 +35,6 @@ class excel_db(models.Model):
     wed = models.CharField(max_length=50,null=True,default='')
     thu = models.CharField(max_length=50,null=True,default='')
     fri = models.CharField(max_length=50,null=True,default='')
+
+    def __str__(self):
+        return f'{self.pk}. {self.friend_name}'
