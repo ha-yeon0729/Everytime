@@ -242,7 +242,6 @@ def gongang(request):
             return render(request,"gongang.html")
     return redirect('button')
 
-
 def logout(request):
     print(request.session['name'])
     try:

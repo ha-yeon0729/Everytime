@@ -90,7 +90,8 @@ def crawling(request):
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
 
-    # 창 크기 고정(px값 고정 위함)
+    # 창 크기 고정(p
+    # x값 고정 위함)
     driver.set_window_size(1024, 630)
 
     driver.get(url)

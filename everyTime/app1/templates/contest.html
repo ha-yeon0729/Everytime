@@ -1,16 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #row{
+            display: inline-block;/*세로나열을 가로나열로 변경*/
+            background:antiquewhite;
+        }
+        li{
+           padding:10px 30px;
+         }
+        form{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<form method="GET">
-    <p>찾고 싶은 공모전을 입력해주세요!</p>
-    <p><input type="text" name="search"></p>
-    <p><button type="button" class="btn btn-success">찾기</button></p>
-</form>
+    <nav>
+    <a class="font-color" href="/" >처음으로</a>
+    <a class="font-color" href="/button">선택하기</a>
+    <a href="/logout" class="font-color">로그아웃</a>
+    </nav>
+    <form method="POST" action=" " >
+        <h1>찾고 싶은 공모전을 입력해주세요!</h1>
+        <p><input type="text" name="search">
+        <button type="submit" class="btn btn-success" >찾기</button>
+        </p>
+    </form>
+
+    <div id="row">
+    <script>
+        var cnt=0;
+        //var array=new Array();
+        document.write("{% for list in List %}");
+            document.write("<li>{{ list }}</li>");
+            //cnt+=1;
+        document.write("{% endfor %}");
+/*
+        for (var a=0;a<array.length;a++){
+            for (var i=0;i<array[a].length;i++){
+                document.write(array[a][i]);
+            }
+            document.write("<br>");
+        }*/
+    </script>
+    </div>
 
 </body>
 </html>

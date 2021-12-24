@@ -35,7 +35,7 @@ def gongang(request):
                          horizontalalignment='right',
                          verticalalignment='bottom')
 
-                plt.bar(x, start, color='g')
+            plt.bar(x, start, color='g')
 
             # 막대그래프의 값을 텍스트로 나타내주는 부분
             if start > next_end:
@@ -243,7 +243,7 @@ def gongang(request):
 
         # 생성된 그래프 imgae file로 저장(출력위함)
         time.sleep(2)
-        plt.savefig('/home/hayeon/Everytime/everyTime/app1/static/example.png')  # 예시) 'C:/example.png' )
+        plt.savefig('/home/hayeon/Everytime/everyTime/static/example.png')  # 예시) 'C:/example.png' )
         return render(request,"gongang.html",{'select':selectDB,})
     return render(request, "fail.html")
 #####################출력하는법########################
