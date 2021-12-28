@@ -14,10 +14,14 @@
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     </nav>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
     <div class="span3">
         <form method="POST">
     <h2>Sign Up</h2>
-        {% csrf_token %}
             <label><strong>에브리타임 아이디</strong></label>
     <input type="text"  name="etaid" class="span3" required/>
             <label><strong>에브리타임 비밀번호</strong></label>

@@ -18,7 +18,7 @@
       <sourceFolder url="file://$MODULE_DIR$/everyTime/mysite" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/everyTime/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="3.6 @ Ubuntu-18.04 (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

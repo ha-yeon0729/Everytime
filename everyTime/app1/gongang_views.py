@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.ticker as ticker
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import friend
 import ast
-import time
+from django.contrib import messages
 
 @csrf_exempt
 def gongang(request):
@@ -93,158 +93,148 @@ def gongang(request):
         start_fri = []
         end_fri = []
         # 체크한 친구목록 불러오기
-        selected = request.POST.getlist('selected')
+        try:
+            selected = request.POST.getlist('selected')
 
-        # 수,목,금을 의미하는 것이  wed, thu, fri가 아닐경우 수정 부탁드립니다!
-        for i in selected:
-            selectDB = friend.objects.filter(friend_name=i)
-            for j in selectDB:
-                print(j)
-                print(j.mon)
-                # 요일별 배열에 선택된 사용자의 요일별 배열의 원소들 넣어준다
-                mon.extend(ast.literal_eval(j.mon))
-                tue.extend(ast.literal_eval(j.tue))
-                wed.extend(ast.literal_eval(j.wed))
-                thu.extend(ast.literal_eval(j.thu))
-                fri.extend(ast.literal_eval(j.fri))
+            # 수,목,금을 의미하는 것이  wed, thu, fri가 아닐경우 수정 부탁드립니다!
+            for i in selected:
+                selectDB = friend.objects.filter(friend_name=i)
+                for j in selectDB:
+                    # 요일별 배열에 선택된 사용자의 요일별 배열의 원소들 넣어준다
+                    mon.extend(ast.literal_eval(j.mon))
+                    tue.extend(ast.literal_eval(j.tue))
+                    wed.extend(ast.literal_eval(j.wed))
+                    thu.extend(ast.literal_eval(j.thu))
+                    fri.extend(ast.literal_eval(j.fri))
 
-        # 요일별 배열 정렬
-        print(mon)
-        arrange_day_class(mon)
-        arrange_day_class(tue)
-        arrange_day_class(wed)
-        arrange_day_class(thu)
-        arrange_day_class(fri)
+            # 요일별 배열 정렬
+            arrange_day_class(mon)
+            arrange_day_class(tue)
+            arrange_day_class(wed)
+            arrange_day_class(thu)
+            arrange_day_class(fri)
 
-        # 강의 시간 분리
-        sep_classtime(mon, start_mon, end_mon)
-        sep_classtime(tue, start_tue, end_tue)
-        sep_classtime(wed, start_wed, end_wed)
-        sep_classtime(thu, start_thu, end_thu)
-        sep_classtime(fri, start_fri, end_fri)
+            # 강의 시간 분리
+            sep_classtime(mon, start_mon, end_mon)
+            sep_classtime(tue, start_tue, end_tue)
+            sep_classtime(wed, start_wed, end_wed)
+            sep_classtime(thu, start_thu, end_thu)
+            sep_classtime(fri, start_fri, end_fri)
 
-        ### 공강시간-> 막대그래프  생성 파트
+            ### 공강시간-> 막대그래프  생성 파트
 
-        # 월
-        index = 0
-        for s, e in zip(start_mon, end_mon):
-            prev_start_index = index - 1
+            # 월
+            index = 0
+            for s, e in zip(start_mon, end_mon):
+                prev_start_index = index - 1
 
-            prev_start = start_mon[prev_start_index]
+                prev_start = start_mon[prev_start_index]
 
-            next_end_index = index + 1
+                next_end_index = index + 1
 
-            if prev_start_index < 0:
-                prev_start = 2400
+                if prev_start_index < 0:
+                    prev_start = 2400
 
-            if next_end_index < len(end_mon):
-                next_end = end_mon[next_end_index]
-            else:
-                next_end = 0
+                if next_end_index < len(end_mon):
+                    next_end = end_mon[next_end_index]
+                else:
+                    next_end = 0
 
 
-            make_blank(x[0], s, prev_start, e, next_end)
+                make_blank(x[0], s, prev_start, e, next_end)
 
-            index += 1
+                index += 1
 
-        # 화
-        index = 0
-        for s, e in zip(start_tue, end_tue):
-            prev_start_index = index - 1
+            # 화
+            index = 0
+            for s, e in zip(start_tue, end_tue):
+                prev_start_index = index - 1
 
-            prev_start = start_tue[prev_start_index]
+                prev_start = start_tue[prev_start_index]
 
-            next_end_index = index + 1
+                next_end_index = index + 1
 
-            if prev_start_index < 0:
-                prev_start = 2400
+                if prev_start_index < 0:
+                    prev_start = 2400
 
-            if next_end_index < len(end_tue):
-                next_end = end_tue[next_end_index]
-            else:
-                next_end = 0
+                if next_end_index < len(end_tue):
+                    next_end = end_tue[next_end_index]
+                else:
+                    next_end = 0
 
-            make_blank(x[1], s, prev_start, e, next_end)
+                make_blank(x[1], s, prev_start, e, next_end)
 
-            index += 1
+                index += 1
 
-        # 수
-        index = 0
-        for s, e in zip(start_wed, end_wed):
-            prev_start_index = index - 1
+            # 수
+            index = 0
+            for s, e in zip(start_wed, end_wed):
+                prev_start_index = index - 1
 
-            prev_start = start_wed[prev_start_index]
+                prev_start = start_wed[prev_start_index]
 
-            next_end_index = index + 1
+                next_end_index = index + 1
 
-            if prev_start_index < 0:
-                prev_start = 2400
+                if prev_start_index < 0:
+                    prev_start = 2400
 
-            if next_end_index < len(end_wed):
-                next_end = end_wed[next_end_index]
-            else:
-                next_end = 0
+                if next_end_index < len(end_wed):
+                    next_end = end_wed[next_end_index]
+                else:
+                    next_end = 0
 
-            make_blank(x[2], s, prev_start, e, next_end)
+                make_blank(x[2], s, prev_start, e, next_end)
 
-            index += 1
+                index += 1
 
-        # 목
-        index = 0
-        for s, e in zip(start_thu, end_thu):
-            prev_start_index = index - 1
+            # 목
+            index = 0
+            for s, e in zip(start_thu, end_thu):
+                prev_start_index = index - 1
 
-            prev_start = start_thu[prev_start_index]
+                prev_start = start_thu[prev_start_index]
 
-            next_end_index = index + 1
+                next_end_index = index + 1
 
-            if prev_start_index < 0:
-                prev_start = 2400
+                if prev_start_index < 0:
+                    prev_start = 2400
 
-            if next_end_index < len(end_thu):
-                next_end = end_thu[next_end_index]
-            else:
-                next_end = 0
+                if next_end_index < len(end_thu):
+                    next_end = end_thu[next_end_index]
+                else:
+                    next_end = 0
 
-            make_blank(x[3], s, prev_start, e, next_end)
+                make_blank(x[3], s, prev_start, e, next_end)
 
-            index += 1
+                index += 1
 
-        # 금
-        index = 0
-        for s, e in zip(start_fri, end_fri):
-            prev_start_index = index - 1
+            # 금
+            index = 0
+            for s, e in zip(start_fri, end_fri):
+                prev_start_index = index - 1
 
-            prev_start = start_fri[prev_start_index]
+                prev_start = start_fri[prev_start_index]
 
-            next_end_index = index + 1
+                next_end_index = index + 1
 
-            if prev_start_index < 0:
-                prev_start = 2400
+                if prev_start_index < 0:
+                    prev_start = 2400
 
-            if next_end_index < len(end_fri):
-                next_end = end_fri[next_end_index]
-            else:
-                next_end = 0
+                if next_end_index < len(end_fri):
+                    next_end = end_fri[next_end_index]
+                else:
+                    next_end = 0
 
-            make_blank(x[4], s, prev_start, e, next_end)
+                make_blank(x[4], s, prev_start, e, next_end)
 
-            index += 1
-        print("mon")
-        print(start_mon,end_mon)
-        print("thue")
-        print(start_tue,end_tue)
-        print("wed")
-        print(start_wed,end_wed)
-        print("thu")
-        print(start_thu,end_thu)
-        print("fri")
-        print(start_fri,end_fri)
+                index += 1
 
-        # 생성된 그래프 imgae file로 저장(출력위함)
-        time.sleep(2)
-        plt.savefig('/home/hayeon/Everytime/everyTime/static/example.png')  # 예시) 'C:/example.png' )
-        return render(request,"gongang.html",{'select':selectDB,})
+            # 생성된 그래프 imgae file로 저장(출력위함)
+            plt.savefig('/home/hayeon/Everytime/everyTime/static/example2.png')  # 예시) 'C:/example.png' )
+            return render(request,"gongang.html",{'select':selected})
+        except:
+            messages.warning(request,"오류가 발생했습니다! 친구를 1명 이상 선택해주세요")
+            return redirect("/select")
     return render(request, "fail.html")
 #####################출력하는법########################
 # 이후 그래프를 출력할 템플릿 html에

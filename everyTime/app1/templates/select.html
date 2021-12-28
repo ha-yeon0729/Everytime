@@ -20,6 +20,12 @@
     <a href="/logout" class="font-color">로그아웃</a>
     </nav>
     <h1>친구를 선택해주세요!</h1>
+
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
 <h2>
     {{ ID }}님의 친구 목록입니다.
 </h2>
@@ -32,9 +38,6 @@
         </label>
     </div>
     {% endfor %}
-    <!-- 이 버튼 클릭 안해도 이 창으로 들어오면 자동으로 크롤링 됨
-        <button type="button" onclick="location.href='../crawl'"  class="btn btn-success">친구목록 불러오기</button>
-     -->
     <button type="submit" class="btn btn-primary pull-right" onclick="select()">공강 시간 구하기</button>
     </form>
 </body>

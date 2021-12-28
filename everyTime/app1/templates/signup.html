@@ -17,7 +17,11 @@
 <div class="span3">
     <div method="POST">
     <h2>Sign Up</h2>
-    {% csrf_token %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
     <form method="POST">
         <label>에브리타임 아이디</label>
         <input type="text" readonly value="{{ etaid }}"name="etaid" class="span3">

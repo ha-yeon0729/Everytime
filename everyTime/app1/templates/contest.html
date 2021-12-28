@@ -25,6 +25,12 @@
     <a class="font-color" href="/button">선택하기</a>
     <a href="/logout" class="font-color">로그아웃</a>
     </nav>
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <form method="POST" action=" " >
         <h1>찾고 싶은 공모전을 입력해주세요!</h1>
         <p><input type="text" name="search">

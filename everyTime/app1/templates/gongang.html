@@ -9,15 +9,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="text-align: center;">
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     <a class="font-color" href="/select" >다시선택하기</a>
     <a href="/logout" class="font-color">로그아웃</a>
     </nav>
-    {% for p in select %}
-    {{ p.friend_name }}님
+    <div>
+    {% for name in select %}
+        [{{ name }}님]
     {% endfor %}
-<img src="{% static 'example.png' %}" alt="공강시간 막대그래프">
+    의 공통된 공강 시간입니다.
+    </div>
+    <img src="{% static 'example2.png' %}" alt="공강시간 막대그래프">
 </body>
 </html>

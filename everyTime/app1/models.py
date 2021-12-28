@@ -3,9 +3,9 @@ from django.db import models
 class member(models.Model):
     name=models.CharField(max_length=20,null=True,default='')
     etaId=models.CharField(max_length=20)
-    etaPw=models.CharField(max_length=30)
+    etaPw=models.CharField(max_length=200)
     ssgId=models.CharField(max_length=20)
-    ssgPw=models.CharField(max_length=30)
+    ssgPw=models.CharField(max_length=200)
 
     # 자동으로 시간 저장
     created_at=models.DateTimeField(auto_now_add=True)
