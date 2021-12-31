@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:\\wsl$\Ubuntu-18.04\home\hayeon\Everytime\everyTime\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="db [2]" uuid="e82a79c5-0704-4ac5-b9a9-4452523b0c68">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\yunsu\Everytime\everyTime\db.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

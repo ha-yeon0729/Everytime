@@ -202,14 +202,12 @@ def timetable_upload(request):
             class_ = i[0:tmp]
             class_time = class_[-11:]
             class_day = class_[0:-11]
+            start_time = int(class_time[0:2]) * 100 + int(class_time[3:5])
+            end_time = int(class_time[6:8]) * 100 + int(class_time[9:11])
+            f_class_time = str(start_time) + '-' + str(end_time)
             for i in class_day:
-                class_array(i, class_time)
+                class_array(i, f_class_time)
 
-        #print(mon)
-        #print(tue)
-        #print(wed)
-        #print(thur)
-        #print(fri)
 
         #DB에 이름 , 시간 저장-하연
         name=request.session['name']

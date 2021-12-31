@@ -5,11 +5,20 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import friend
 import ast
-import time
+# 한글 폰트 사용을 위해서 세팅(그래프에서 한글 깨짐을 방지)
+from matplotlib import font_manager, rc
 
 @csrf_exempt
 def gongang(request):
     if request.method == 'POST':
+
+        #폰트 경로
+        font_path = "C:/Windows/Fonts/batang.ttc"
+        #폰트 적용
+        font = font_manager.FontProperties(fname=font_path).get_name()
+        rc('font', family=font)
+
+
         # 강의 늦게 끝나는 순서로 정렬해주는 함수
         def arrange_day_class(day):
             for i in range(len(day) - 1):
@@ -29,20 +38,32 @@ def gongang(request):
 
             # 막대그래프의 값을 텍스트로 나타내주는 부분
             if prev_start > end:
-                plt.text(x, end, end,
+
+                hour = str(int(end / 100))
+                minute = str(end % 100)
+                if minute == '0':
+                    minute = '00'
+
+                plt.text(x, end, hour+':'+minute,
                          fontsize=6,
                          color='black',
-                         horizontalalignment='right',
+                         horizontalalignment='center',
                          verticalalignment='bottom')
 
-                plt.bar(x, start, color='g')
+            plt.bar(x, start, color='lightslategrey')
 
             # 막대그래프의 값을 텍스트로 나타내주는 부분
             if start > next_end:
-                plt.text(x, start, start,
+
+                hour = str(int(start / 100))
+                minute = str(start % 100)
+                if minute == '0':
+                    minute = '00'
+
+                plt.text(x, start, hour+':'+minute,
                          fontsize=6,
                          color='black',
-                         horizontalalignment='right',
+                         horizontalalignment='center',
                          verticalalignment='bottom')
 
         ##########################matplotlib관련 부분#######################
@@ -54,19 +75,27 @@ def gongang(request):
         years = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 
         # 월~금에 기본적으로 생성할 막대의 크기
-        values = [2100, 2100, 2100, 2100, 2100]
+        values = [2200, 2200, 2200, 2200, 2200]
 
-        # 기본적으로 2100까지 그래프 생성(녹색)
-        plt.bar(x, values, color='g')
+        # 라벨 가시화(색깔에 따른 의미 알려주기 위함)
+        plt.bar(x, values, color='w', label='강의시간')
+
+        plt.legend(fontsize=6,loc="upper right", bbox_to_anchor=(1.138, 1), facecolor='lavender')
+
+        plt.bar(x, values, color='lightslategrey', label='공강시간')
+
+        plt.legend(fontsize=6,loc="upper right", bbox_to_anchor=(1.138, 1), facecolor='lavender')
 
         # x축 생성
         plt.xticks(x, years)
 
         # y축 눈금 표시 범위
-        plt.ylim([900, 2100])
+        plt.ylim([2200, 900])
+        # y축 눈금 단위 지정
+        plt.yticks([900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200],
+                   ('9시', '10시', '11시', '12시', '13시', '14시', '15시', '16시', '17시', '18시', '19시', '20시', '21시', '22시'))
 
-        # y축 주 눈금 단위 100(1시간) 눈금은 추후 수정 예정
-        ax.yaxis.set_major_locator(ticker.MultipleLocator(100))
+
 
         #####################################################################
 
@@ -125,6 +154,17 @@ def gongang(request):
 
         ### 공강시간-> 막대그래프  생성 파트
 
+        print("mon!")
+        print(start_mon, end_mon)
+        print("tue!")
+        print(start_tue, end_tue)
+        print("wed!")
+        print(start_wed, end_wed)
+        print("thu!")
+        print(start_thu, end_thu)
+        print("fri!")
+        print(start_fri, end_fri)
+
         # 월
         index = 0
         for s, e in zip(start_mon, end_mon):
@@ -157,7 +197,7 @@ def gongang(request):
             next_end_index = index + 1
 
             if prev_start_index < 0:
-                prev_start = 2400
+                prev_start = 100000
 
             if next_end_index < len(end_tue):
                 next_end = end_tue[next_end_index]
@@ -178,7 +218,7 @@ def gongang(request):
             next_end_index = index + 1
 
             if prev_start_index < 0:
-                prev_start = 2400
+                prev_start = 10000
 
             if next_end_index < len(end_wed):
                 next_end = end_wed[next_end_index]
@@ -230,20 +270,11 @@ def gongang(request):
             make_blank(x[4], s, prev_start, e, next_end)
 
             index += 1
-        print("mon")
-        print(start_mon,end_mon)
-        print("thue")
-        print(start_tue,end_tue)
-        print("wed")
-        print(start_wed,end_wed)
-        print("thu")
-        print(start_thu,end_thu)
-        print("fri")
-        print(start_fri,end_fri)
+
 
         # 생성된 그래프 imgae file로 저장(출력위함)
-        time.sleep(2)
-        plt.savefig('/home/hayeon/Everytime/everyTime/app1/static/example.png')  # 예시) 'C:/example.png' )
+
+        plt.savefig('C:/Users/yunsu/Everytime/everyTime/app1\static/example.png', facecolor='#eeeeee', dpi=140, pad_inches=0.3)  # 예시) 'C:/example.png' )
         return render(request,"gongang.html",{'select':selectDB,})
     return render(request, "fail.html")
 #####################출력하는법########################

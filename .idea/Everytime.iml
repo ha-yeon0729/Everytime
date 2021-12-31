@@ -18,7 +18,7 @@
       <sourceFolder url="file://$MODULE_DIR$/everyTime/mysite" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/everyTime/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (Everytime_interpreter_version)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

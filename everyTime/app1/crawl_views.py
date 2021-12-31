@@ -257,6 +257,11 @@ def crawling(request):
         # 이름 클릭 후 시간표 페이지 진입
         driver.find_element_by_xpath('//*[@id="container"]/div[2]/a[%d]' % (num)).click()
 
+        sleep(1)
+
+        #가장 최근 학기 선택
+        driver.find_element_by_xpath('//*[@id="container"]/aside/div[2]/ol/li[1]/a').click()
+
         sleep(rand_value)
 
         html = driver.page_source
