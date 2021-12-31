@@ -116,13 +116,7 @@ def crawling(request):
     # 로그인 성공여부 확인 및 예외처리
     try:
         driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
-        sleep(1)
-        driver.find_element_by_xpath('//*[@id="semesters"]').click()
-        sleep(1)
-        driver.find_element_by_xpath('//*[@id="semesters"]/option[6]').click()
-        sleep(1)
-        driver.find_element_by_xpath('//*[@id="semesters"]').click()
-        sleep(1)
+
 
     except:
         driver.quit()
