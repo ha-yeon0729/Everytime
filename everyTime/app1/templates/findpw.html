@@ -8,8 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <title>비밀번호재설정</title>
+
 </head>
-<body>
+<body style="text-align: center; font-family: 'EliceDigitalBaeum_Bold'">
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     </nav>
@@ -20,7 +21,7 @@
         </div>
     {% endfor %}
 
-    <div class="span3">
+    <div style="margin-left: 0%">
     <div method="POST">
     <h2>본인인증</h2>
     {% csrf_token %}
@@ -39,8 +40,10 @@
 
         <label>새로운 find-gongang 비밀번호 확인</label>
         <input type="password" name="ressgpw" class="span3" required/>
-            <input type="reset" value="초기화">
-        <input type="submit" value="인증하기" name="auth" class="btn btn-primary pull-right">
+        <p>
+            <input type="reset" value="초기화" class="btn btn-primary pull-center">
+            <input type="submit" value="인증하기" name="auth" class="btn btn-primary pull-center">
+        </p>
         <div class="clearfix"></div>
     </form>
     </div>

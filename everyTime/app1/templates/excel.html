@@ -7,9 +7,25 @@
 <head>
     <meta charset="UTF-8">
     <title>엑셀파일크롤링</title>
-
+<style>
+    form{
+        margin-top: 10%;
+        margin-left: 28%;
+        text-align: center;
+    }
+    .round-box{
+        padding: 20px;
+        width:670px;
+        height:200px;
+        background-color: #07553B;
+        border-radius: 0 20px 0 20px;
+        border-width: 4px;
+        border-style:solid;
+        border-color: white;
+    }
+</style>
 </head>
-<body>
+<body style="font-family: 'EliceDigitalBaeum_Bold';background-color: #CED46A;">
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     <a class="font-color" href="/button" >방법다시선택하기</a>
@@ -18,19 +34,20 @@
 
 <form action="../excelfile/" method="POST" enctype="multipart/form-data" value="upload">
 {% csrf_token %}
+    <div class="round-box">
     <table border="1px" id="dynamicTable">
         <tr>
-            <th scope="col">이름</th>
-            <th scope="col">엑셀파일</th>
+            <th scope="col" style="color:white">이름</th>
+            <th scope="col"style="color:white">엑셀파일</th>
         </tr>
         <tr>
             <td><input type="text" name="name" id="name"></td>
-            <td><input type="file" name="excel" accept=".xlsx"></td>
-            <td><input type='submit' value="업로드" name="upload" class="btn btn-warning"></td>
-
+            <td><input type="file" name="excel" accept=".xlsx" style="color:white"></td>
+            <td><input type='submit' value="업로드" name="upload" class="btn btn-success"></td>
         </tr>
     </table>
-    <input type='submit' name="submit" style="margin:2.5rem 0 2rem 0;"class="btn btn-warning">
+        <button type='button' name="submit" style="margin:2.5rem 0 2rem 0;" class="btn btn-success"><a href="/button"; style="color: white">돌아가기</a> </button>
+</div>
 </form>
 </body>
 </html>

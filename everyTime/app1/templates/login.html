@@ -13,25 +13,32 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
+    <meta charset="UTF-8">
     <style>
+        body {
+            background-image: url('../../static/time.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
         h2{
+            margin-top: 50px;
             text-align: center;
         }
         div#border{
-        text-align: center;
-        margin: 0 auto;
-        width: 100%;
-        margin-top: 1.5rem;
-        border: 0.001px solid rgb(216, 216, 216);
-        background-color: white;
-        padding: 1.5rem;
-        padding-bottom: 0rem;
-        margin-bottom: 1rem;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            margin-top: 100px;
+            border: 10px solid rgb(216, 216, 216);
+            backdrop-filter:blur(50px);
+            padding: 1.5rem;
+            padding-bottom: 0rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 
-<body>
+<body style="font-family: 'EliceDigitalBaeum_Bold';">
 <nav>
     <a class="font-color" href="/" >처음으로</a>
   </nav>
@@ -43,7 +50,7 @@
         </div>
     {% endfor %}
 
-<div class="container h-100">
+<div style="margin-left: 0%">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
                 <h2>로그인을 해주세요!</h2>

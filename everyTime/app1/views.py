@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 import pandas as pd
 from .models import member, friend, excel_db
-
+import rsa
 @csrf_exempt
 def index(request):
     return render(request,"index.html")
@@ -62,25 +62,27 @@ def button(request):
     try:
         check=request.session['name']
         if check is not None:
-            return render(request,"button.html")
+            return render(request,"button.html",{'name':check,})
     except:
         return redirect("/login")
 #-------------------------------------------------------
 @csrf_exempt
 def select(request):
-    name = request.session['name']
-    friends=friend.objects.filter(my_name=name)
+    name = request.session['name'] #12/29 주석 처리.
+    friends=friend.objects.filter(my_name=name) #12/29 주석 처리.
 
-    if request.method=="POST":
-        return redirect('crawl')
-    if name:
+    #if request.method=="POST":
+        #return redirect('crawl')
+
+    if name: #12/29 주석 처리.
         #Id.ssgId 하면 member DB의 ssgId(FG 아이디) 가 나오고, Id.ssgPw하면 DB의 FG비번이 나온다.
         #그냥 ID만 쓰면 제일 첫번째 값인 etaId가 나온다.
-        return render(request, 'select.html', {'ID': name, 'friends': friends, })
+        return render(request, 'select.html', {'name': name, 'friends': friends, }) #12/29 주석 처리.
 
-    return redirect('button')
+    #return redirect('button')
 @csrf_exempt
 def signup(request):
+
     # 입력한 아이디, 비번으로 진짜 에타에 접속이 되는지 확인 -하연
     if 'check' in request.POST:
         # 개발용-코드
@@ -88,50 +90,51 @@ def signup(request):
         user_pw = request.POST.get('etapw')  # 비밀번호 입력
 
         # 이미 가입된 아이디인지 확인-하연
-        if member.objects.get(etaId=user_id):
+        try:
+            member.objects.get(etaId=user_id)
             messages.error(request, '이미 가입된 아이디입니다!')
             return redirect("login")
 
-        # 로그인 url
-        url = 'https://everytime.kr/login'
-        options = webdriver.ChromeOptions()
-        #options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        # 크롤러 실행 시 로그노출 안되도록 option 설정
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-        driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-
-        driver.get(url)
-
-        # id값으로 ID,Password 입력창을 찾아준 후 값 입력
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
-
-        sleep(1)
-
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
-
-        sleep(2)
-
-        # 로그인 버튼 클릭
-        driver.find_element_by_xpath('//*[@id="container"]/form/p[3]/input').click()
-
-        # 로그인 성공여부 확인 및 예외처리
-        try:
-            driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
-            messages.error(request,'에브리타임 아이디와 비밀번호가 확인되었습니다!')
-            return render(request,'signup.html',{'etaid': user_id,'etapw':user_pw})
-
         except:
+            # 로그인 url
+            url = 'https://everytime.kr/login'
+            options = webdriver.ChromeOptions()
+            #options.add_argument('--headless')
+            options.add_argument('--no-sandbox')
+            # 크롤러 실행 시 로그노출 안되도록 option 설정
+            options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+            driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
+
+            driver.get(url)
+
+            # id값으로 ID,Password 입력창을 찾아준 후 값 입력
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[1]/input').send_keys(user_id)
+
+            sleep(1)
+
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[2]/input').send_keys(user_pw)
+
+            sleep(2)
+
+            # 로그인 버튼 클릭
+            driver.find_element_by_xpath('//*[@id="container"]/form/p[3]/input').click()
+
+            # 로그인 성공여부 확인 및 예외처리
+            try:
+                driver.find_element_by_xpath('//*[@id="menu"]/li[2]/a').click()
+                messages.error(request,'에브리타임 아이디와 비밀번호가 확인되었습니다!')
+                return render(request,'signup.html',{'etaid': user_id,'etapw':user_pw})
+
+            except:
+                driver.quit()
+                return 'err'
+                messages.error(request, '유효한 에브리타임 정보가 아닙니다!')
+                return render(request, "check.html")
             driver.quit()
-            #return 'err'
-            messages.error(request, '유효한 에브리타임 정보가 아닙니다!')
-            return render(request, "check.html")
-        driver.quit()
 
     # 에타 인증 후 FG 사이트 아이디, 비번 설정
     elif 'signup' in request.POST:
-
         etaid=request.POST.get("etaid",False)
         etapw=request.POST.get("etapw",False)
         name=request.POST.get("name",False)
@@ -143,7 +146,7 @@ def signup(request):
             messages.error(request, '정상적으로 회원가입이 되었습니다!')
 
             #내가 만든 DB(에타정보, FD정보 둘다 저장)
-            DB=member(name=name,etaId=etaid,etaPw=PasswordHasher().hash(etapw),ssgId=ssgid,ssgPw=PasswordHasher().hash(ssgpw))
+            DB=member(name=name,etaId=etaid,etaPw=etapw,ssgId=ssgid,ssgPw=PasswordHasher().hash(ssgpw))
             DB.save()
             #장고에서 제공하는 로그인 기능DB활용
             user=User.objects.create_user(username=ssgid,password=ssgpw)
@@ -232,26 +235,28 @@ def timetable_upload(request):
             class_ = i[0:tmp]
             class_time = class_[-11:]
             class_day = class_[0:-11]
+            start_time = int(class_time[0:2]) * 100 + int(class_time[3:5])
+            end_time = int(class_time[6:8]) * 100 + int(class_time[9:11])
+            f_class_time = str(start_time) + '-' + str(end_time)
             for i in class_day:
-                class_array(i, class_time)
+                class_array(i, f_class_time)
 
-        #print(mon)
-        #print(tue)
-        #print(wed)
-        #print(thur)
-        #print(fri)
 
         #DB에 이름 , 시간 저장-하연
         name=request.session['name']
         user_name = request.POST["name"]
         #print(name)
         #print(user_name)
-        DB=excel_db(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
+        #DB=excel_db(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
+        DB=friend(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
         DB.save()
         return render(request, "excel.html")
 
     elif 'submit' in request.POST:
         return redirect("/gongang2")
+    # 값만 저장. 페이지 이동이 아니라.
+    # DB에 잘 들어갔는지 확인하기
+
     else:
         return render(request, "excel.html")
 @csrf_exempt

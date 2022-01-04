@@ -15,5 +15,8 @@ urlpatterns=[
     path('gongang/', gongang_views.gongang, name='gongang'),
     path('gongang2/', gongang2_views.gongang2, name='gongang2'),
     path('logout/', views.logout, name='logout'),
-    path('contest/', contest_views.contest_wevity, name='contest_wevity'),
+    path('contest/', contest_views.contest, name='contest'),
+    path('contest/wevity/', contest_views.wevity, name='wevity'),
+    path('contest/thinkyou/', contest_views.thinkyou, name='thinkyou'),
+    path('contest/spectory/', contest_views.spectory, name='spectory'),
 ]

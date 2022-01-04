@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="{%static 'nav.css' %}">
 
@@ -11,9 +12,14 @@
     h1{
         text-align: center;
     }
+    body {
+        background-image: url('../../static/time.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
     </style>
     </head>
-	<body>
+	<body style="font-family: 'EliceDigitalBaeum_Bold'">
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     <a class="font-color" href="/button" >방법다시선택하기</a>
@@ -25,20 +31,29 @@
     <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
         {{ message }}
     </div>
-{% endfor %}
-<h2>
-    {{ ID }}님의 친구 목록입니다.
-</h2>
-    <form action="../gongang/" method="post" >
-   {% for p in friends %}
-    <div class="checkbox">
-        <label>
+    {% endfor %}
+    <div style="margin-left: 30px">
+        <h2>
+            {{ name }}님의 친구 목록입니다.
+        </h2>
+        <form action="../gongang/" method="post" name="selected">
+       {% for p in friends %}
+        <div class="checkbox">
             <input type="checkbox" value={{ p.friend_name }} name="selected">
             {{ p.friend_name }}
-        </label>
-    </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary pull-right" onclick="select()">공강 시간 구하기</button>
+        </div>
+        {% endfor %}
+    <button type="submit" class="btn btn-primary pull-right" onclick="return check()">공강 시간 구하기</button>
     </form>
+    </div>
+    <script>
+
+    function check() {
+        if ($('input[name="selected"]').is(":checked")==false) {
+            alert('체크박스에 체크해주세요.');
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

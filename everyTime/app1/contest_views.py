@@ -1,18 +1,26 @@
 import urllib.request
-from urllib import parse
 from bs4 import BeautifulSoup
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from time import sleep
+import urllib.request
+from urllib import parse
+import json
+from datetime import datetime
 
+#공모전 기본 페이지
 @csrf_exempt
-def contest_wevity(request):
+def contest(request):
+    return render(request,"contest.html")
+
+# 위비티 버튼을 클릭했다면
+@csrf_exempt
+def wevity(request):
     if request.method=="POST":
         flag = 0
         #공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
-        List=[[]]
-        cnt=0
+        List=[]
+        cnt=-1
         # 검색할 키워드 입력
         #search = input('검색어를 입력하세요: ')
 
@@ -48,6 +56,7 @@ def contest_wevity(request):
 
         # 각각의 대회를 하나씩 훑는다.
         for i in contest:
+
             # 각 대회의 세부정보를 알기위해 해당 링크를 가져온다.
             link = url + i.select_one("div.tit > a")["href"]
 
@@ -85,48 +94,41 @@ def contest_wevity(request):
             try:
                 first_prize = soup.select_one(
                     "#container > div.content-area > div.content-wrap > div.content > div > div.cd-area > div.info > ul > li:nth-child(7)").text
+                if first_prize=="\n1등 상금\n":
+                    first_prize="없음"
             except:
                 first_prize = ' '
+
             # 기간이 지난 경우 출력X
             if D_day[1] == '+':
                 continue
             else:
+                # 한 바퀴 돌때마다 추가-하연
+                List.append([])
+                cnt += 1
                 flag+=1
-            #print(name)
-            #print(date[12:35])
-            #print(first_prize[13:].strip())
-            #print("자세한 내용: " + contest_link)
-            #print("---------------------------------------------------")
+
             List[cnt].append(name)
             List[cnt].append(date)
             List[cnt].append(first_prize)
             List[cnt].append(contest_link)
 
-            print(List)
-            print(List[cnt])
-            # 한 바퀴 돌때마다 추가-하연
-            List.append([])
-            print(List)
-            cnt+=1
-            print(cnt)
-
         if flag == 0:
-            print('가능한 공모전이 없습니다.')
             messages.warning(request,"가능한 공모전이 없습니다!")
-            return render(request, "contest.html")
+            return render(request, "wevity.html")
 
-        return render(request, "contest.html", {'List': List})
-    else:
-        return render(request, "contest.html")
+        return render(request, "wevity.html", {'List': List})
+    return redirect('../')
 
-
-def contest_thinkyou(request):
-    if request.method=="POST":
+# 씽유 버튼을 클릭했다면
+@csrf_exempt
+def thinkyou(request):
+    if request.method=='POST':
         flag = 0
 
         # 공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
-        List = [[]]
-        cnt = 0
+        List = []
+        cnt = -1
         # 검색할 키워드 입력
         # search = input('검색어를 입력하세요: ')
 
@@ -151,6 +153,7 @@ def contest_thinkyou(request):
 
         # 각각의 대회를 하나씩 훑는다.
         for i in contest:
+
             # 각 대회의 세부정보를 알기위해 해당 링크를 가져온다.
             link = url + i.select_one("dt > a")["href"]
 
@@ -186,24 +189,76 @@ def contest_thinkyou(request):
             if D_day == '마감':
                 continue
 
-                flag += 1
+            # 한 바퀴 돌때마다 추가-하연
+            List.append([])
+            cnt += 1
+            flag += 1
 
-        print(name)
-        print(date)
-        print(contest_link)
-        List[cnt].append(name)
-        List[cnt].append(date)
-        List[cnt].append(contest_link)
-
-        print(List)
-        print(List[cnt])
-        # 한 바퀴 돌때마다 추가-하연
-        List.append([])
-        cnt += 1
+            List[cnt].append(name)
+            List[cnt].append(date)
+            List[cnt].append(contest_link)
 
         if flag == 0:
             messages.warning(request, "가능한 공모전이 없습니다.")
-            return render(request, "contest.html")
-        return render(request, "contest.html", {'List': List})
-    else:
-        return render(request, "contest.html")
+            return render(request, "thinkyou.html")
+        return render(request, "thinkyou.html", {'List': List})
+    return redirect('../')
+
+#스펙토리 버튼을 클릭했다면
+@csrf_exempt
+def spectory(request):
+    if request.method=='POST':
+        flag = 0
+        # 공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
+        List = []
+        cnt = -1
+        # 현재 날짜
+        now = datetime.today()
+
+        # 검색할 키워드 입력
+        # search = input('검색어를 입력하세요: ')
+
+        # 입력받은 키워드 전달하기-하연
+        search = request.POST.get("search")
+
+        # 대회 정보를 가지고 있는 api주소
+        search_url = 'http://spectory.net/api/portal/contest?__n=1640420919237&siteType=%EA%B3%B5%EB%AA%A8%EC%A0%84&categoryPrefix=info-category&searchType=all&searchTxt='
+
+        # 검색한 키워드와 주소 연결
+        final_url = search_url + parse.quote(search) + '&page=1&rows=10'
+
+        source = urllib.request.urlopen(final_url).read()
+
+        # json데이터로 분리 후 key값이 data인 값만 추출
+        contest = json.loads(source)['data']
+
+        # 각각의 대회를 하나씩 훑는다.
+        for i in contest:
+            # json데이터 중 접수 마감기간의 정보를 가지고 있는 것의 key값이 'endDate'이다. 이 시간과 현재 날짜를 비교하여 접수기간이 유효한지를 판단
+            end_date = datetime.strptime(i['endDate'], '%Y-%m-%d %H:%M')
+
+            # 접수기간이 유효할 경우
+            if now < end_date:
+
+                # 한 바퀴 돌때마다 추가-하연
+                List.append([])
+                cnt += 1
+                flag+=1
+
+                date = i['startDate'][0:11] + '~ ' + i['endDate'][0:11]
+
+                print(i['name'].strip())
+
+                print('접수기간:', date.strip())
+
+                print('-----------------------------------------------')
+
+                List[cnt].append(i['name'].strip())
+                List[cnt].append(date.strip())
+        if flag == 0:
+            messages.warning(request,"가능한 공모전이 없습니다!")
+            return render(request, "spectory.html")
+
+        return render(request, "spectory.html", {'List': List})
+
+    return redirect('../')
