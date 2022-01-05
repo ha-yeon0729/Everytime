@@ -18590,3 +18590,1053 @@ findfont: Font family ['Batang'] not found. Falling back to DejaVu Sans.
 [pid: 8192|app: 0|req: 5/6] 127.0.0.1 () {58 vars in 1173 bytes} [Tue Jan  4 15:40:14 2022] GET /excelfile/ => generated 1936 bytes in 6 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
 [pid: 8192|app: 0|req: 6/7] 127.0.0.1 () {58 vars in 1170 bytes} [Tue Jan  4 15:40:53 2022] GET /button/ => generated 2019 bytes in 18 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
 [pid: 8192|app: 0|req: 7/8] 127.0.0.1 () {58 vars in 1173 bytes} [Tue Jan  4 15:41:02 2022] GET /excelfile/ => generated 1936 bytes in 8 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+[pid: 8192|app: 0|req: 8/9] 127.0.0.1 () {58 vars in 1170 bytes} [Tue Jan  4 15:45:13 2022] GET /button/ => generated 2019 bytes in 8 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 8192|app: 0|req: 9/10] 127.0.0.1 () {58 vars in 1169 bytes} [Tue Jan  4 15:45:17 2022] GET /contest/ => generated 1932 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 8192|app: 0|req: 10/11] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:46:01 2022] GET /contest/ => generated 1932 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 8192|app: 0|req: 11/12] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:46:02 2022] GET /contest/ => generated 1932 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 15:46:06 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d215ea5d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55d215ea5d30 pid: 9351 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9351)
+spawned uWSGI worker 1 (pid: 9353, cores: 1)
+spawned uWSGI worker 2 (pid: 9354, cores: 1)
+spawned uWSGI worker 3 (pid: 9355, cores: 1)
+spawned uWSGI worker 4 (pid: 9356, cores: 1)
+spawned uWSGI worker 5 (pid: 9357, cores: 1)
+spawned uWSGI worker 6 (pid: 9358, cores: 1)
+spawned uWSGI worker 7 (pid: 9359, cores: 1)
+spawned uWSGI worker 8 (pid: 9360, cores: 1)
+spawned uWSGI worker 9 (pid: 9361, cores: 1)
+spawned uWSGI worker 10 (pid: 9362, cores: 1)
+[pid: 9362|app: 0|req: 1/1] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:46:08 2022] GET /contest/ => generated 1932 bytes in 1657 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 15:46:17 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x559702c2ed30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x559702c2ed30 pid: 9566 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9566)
+spawned uWSGI worker 1 (pid: 9568, cores: 1)
+spawned uWSGI worker 2 (pid: 9569, cores: 1)
+spawned uWSGI worker 3 (pid: 9570, cores: 1)
+spawned uWSGI worker 4 (pid: 9571, cores: 1)
+spawned uWSGI worker 5 (pid: 9572, cores: 1)
+spawned uWSGI worker 6 (pid: 9573, cores: 1)
+spawned uWSGI worker 7 (pid: 9574, cores: 1)
+spawned uWSGI worker 8 (pid: 9575, cores: 1)
+spawned uWSGI worker 9 (pid: 9576, cores: 1)
+spawned uWSGI worker 10 (pid: 9577, cores: 1)
+[pid: 9576|app: 0|req: 1/1] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:46:18 2022] GET /contest/ => generated 1932 bytes in 1939 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 9576|app: 0|req: 2/2] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:47:02 2022] GET /contest/ => generated 1989 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 15:47:11 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5638e98e9d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5638e98e9d30 pid: 10306 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10306)
+spawned uWSGI worker 1 (pid: 10316, cores: 1)
+spawned uWSGI worker 2 (pid: 10317, cores: 1)
+spawned uWSGI worker 3 (pid: 10318, cores: 1)
+spawned uWSGI worker 4 (pid: 10319, cores: 1)
+spawned uWSGI worker 5 (pid: 10320, cores: 1)
+spawned uWSGI worker 6 (pid: 10321, cores: 1)
+spawned uWSGI worker 7 (pid: 10322, cores: 1)
+spawned uWSGI worker 8 (pid: 10323, cores: 1)
+spawned uWSGI worker 9 (pid: 10324, cores: 1)
+spawned uWSGI worker 10 (pid: 10325, cores: 1)
+[pid: 10325|app: 0|req: 1/1] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:47:14 2022] GET /contest/ => generated 1989 bytes in 1660 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 15:47:21 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a292bc9d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55a292bc9d30 pid: 10574 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10574)
+spawned uWSGI worker 1 (pid: 10576, cores: 1)
+spawned uWSGI worker 2 (pid: 10577, cores: 1)
+spawned uWSGI worker 3 (pid: 10578, cores: 1)
+spawned uWSGI worker 4 (pid: 10579, cores: 1)
+spawned uWSGI worker 5 (pid: 10580, cores: 1)
+spawned uWSGI worker 6 (pid: 10581, cores: 1)
+spawned uWSGI worker 7 (pid: 10582, cores: 1)
+spawned uWSGI worker 8 (pid: 10583, cores: 1)
+spawned uWSGI worker 9 (pid: 10584, cores: 1)
+spawned uWSGI worker 10 (pid: 10585, cores: 1)
+[pid: 10584|app: 0|req: 1/1] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:47:22 2022] GET /contest/ => generated 1987 bytes in 2060 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 15:47:45 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x558852402d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x558852402d30 pid: 10835 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10835)
+spawned uWSGI worker 1 (pid: 10837, cores: 1)
+spawned uWSGI worker 2 (pid: 10838, cores: 1)
+spawned uWSGI worker 3 (pid: 10839, cores: 1)
+spawned uWSGI worker 4 (pid: 10840, cores: 1)
+spawned uWSGI worker 5 (pid: 10841, cores: 1)
+spawned uWSGI worker 6 (pid: 10842, cores: 1)
+spawned uWSGI worker 7 (pid: 10843, cores: 1)
+spawned uWSGI worker 8 (pid: 10844, cores: 1)
+spawned uWSGI worker 9 (pid: 10845, cores: 1)
+spawned uWSGI worker 10 (pid: 10846, cores: 1)
+[pid: 10846|app: 0|req: 1/1] 127.0.0.1 () {60 vars in 1200 bytes} [Tue Jan  4 15:47:46 2022] GET /contest/ => generated 2014 bytes in 2129 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10845|app: 0|req: 1/2] 127.0.0.1 () {58 vars in 1168 bytes} [Tue Jan  4 15:49:10 2022] GET /button/ => generated 2019 bytes in 1252 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 2/3] 127.0.0.1 () {58 vars in 1169 bytes} [Tue Jan  4 15:49:14 2022] GET /contest/ => generated 2013 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 3/4] 127.0.0.1 () {58 vars in 1168 bytes} [Tue Jan  4 15:49:17 2022] GET /button/ => generated 2019 bytes in 28 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 4/5] 127.0.0.1 () {58 vars in 1169 bytes} [Tue Jan  4 15:49:19 2022] GET /contest/ => generated 2013 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 5/6] 127.0.0.1 () {66 vars in 1359 bytes} [Tue Jan  4 15:49:46 2022] POST /contest/wevity/ => generated 3141 bytes in 855 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 6/7] 127.0.0.1 () {66 vars in 1370 bytes} [Tue Jan  4 15:49:48 2022] POST /contest/thinkyou/ => generated 3070 bytes in 168 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+GC녹십자웰빙 '나의 건강기능식품' 영상 공모전
+접수기간: 2021-12-31 ~ 2022-01-15
+-----------------------------------------------
+[제10회 서울구로국제어린이영화제] 학생단편 출품 공모안내
+접수기간: 2021-10-22 ~ 2022-02-14
+-----------------------------------------------
+광주 관광 디지털콘텐츠 공모전
+접수기간: 2022-02-07 ~ 2022-02-18
+-----------------------------------------------
+제8회 법령경연 학술대회
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+원자력 글로벌 아이디어 제안전
+접수기간: 2021-12-27 ~ 2022-02-06
+-----------------------------------------------
+제1회 콘텐츠 기획 아이디어 글로벌 공모전
+접수기간: 2022-01-21 ~ 2022-03-05
+-----------------------------------------------
+비대면 AI 인터뷰 공모전
+접수기간: 2021-12-15 ~ 2022-02-15
+-----------------------------------------------
+크레모아 아웃트로 제품디자인 콘테스트
+접수기간: 2021-12-06 ~ 2022-01-25
+-----------------------------------------------
+2021만화원작활성화공모전
+접수기간: 2021-12-27 ~ 2022-01-06
+-----------------------------------------------
+2021 용인시의사회 청소년 UCC 공모전
+접수기간: 2021-12-01 ~ 2022-01-15
+-----------------------------------------------
+[pid: 10846|app: 0|req: 7/8] 127.0.0.1 () {66 vars in 1372 bytes} [Tue Jan  4 15:49:49 2022] POST /contest/spectory/ => generated 6676 bytes in 943 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+GC녹십자웰빙 '나의 건강기능식품' 영상 공모전
+접수기간: 2021-12-31 ~ 2022-01-15
+-----------------------------------------------
+[제10회 서울구로국제어린이영화제] 학생단편 출품 공모안내
+접수기간: 2021-10-22 ~ 2022-02-14
+-----------------------------------------------
+광주 관광 디지털콘텐츠 공모전
+접수기간: 2022-02-07 ~ 2022-02-18
+-----------------------------------------------
+제8회 법령경연 학술대회
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+원자력 글로벌 아이디어 제안전
+접수기간: 2021-12-27 ~ 2022-02-06
+-----------------------------------------------
+제1회 콘텐츠 기획 아이디어 글로벌 공모전
+접수기간: 2022-01-21 ~ 2022-03-05
+-----------------------------------------------
+비대면 AI 인터뷰 공모전
+접수기간: 2021-12-15 ~ 2022-02-15
+-----------------------------------------------
+크레모아 아웃트로 제품디자인 콘테스트
+접수기간: 2021-12-06 ~ 2022-01-25
+-----------------------------------------------
+2021만화원작활성화공모전
+접수기간: 2021-12-27 ~ 2022-01-06
+-----------------------------------------------
+2021 용인시의사회 청소년 UCC 공모전
+접수기간: 2021-12-01 ~ 2022-01-15
+-----------------------------------------------
+[pid: 10846|app: 0|req: 8/9] 127.0.0.1 () {66 vars in 1372 bytes} [Tue Jan  4 15:49:52 2022] POST /contest/spectory/ => generated 6676 bytes in 532 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10845|app: 0|req: 2/10] 127.0.0.1 () {66 vars in 1368 bytes} [Tue Jan  4 15:49:54 2022] POST /contest/wevity/ => generated 3141 bytes in 684 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 9/11] 127.0.0.1 () {66 vars in 1370 bytes} [Tue Jan  4 15:49:56 2022] POST /contest/thinkyou/ => generated 3070 bytes in 143 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+GC녹십자웰빙 '나의 건강기능식품' 영상 공모전
+접수기간: 2021-12-31 ~ 2022-01-15
+-----------------------------------------------
+[제10회 서울구로국제어린이영화제] 학생단편 출품 공모안내
+접수기간: 2021-10-22 ~ 2022-02-14
+-----------------------------------------------
+광주 관광 디지털콘텐츠 공모전
+접수기간: 2022-02-07 ~ 2022-02-18
+-----------------------------------------------
+제8회 법령경연 학술대회
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+원자력 글로벌 아이디어 제안전
+접수기간: 2021-12-27 ~ 2022-02-06
+-----------------------------------------------
+제1회 콘텐츠 기획 아이디어 글로벌 공모전
+접수기간: 2022-01-21 ~ 2022-03-05
+-----------------------------------------------
+비대면 AI 인터뷰 공모전
+접수기간: 2021-12-15 ~ 2022-02-15
+-----------------------------------------------
+크레모아 아웃트로 제품디자인 콘테스트
+접수기간: 2021-12-06 ~ 2022-01-25
+-----------------------------------------------
+2021만화원작활성화공모전
+접수기간: 2021-12-27 ~ 2022-01-06
+-----------------------------------------------
+2021 용인시의사회 청소년 UCC 공모전
+접수기간: 2021-12-01 ~ 2022-01-15
+-----------------------------------------------
+[pid: 10846|app: 0|req: 10/12] 127.0.0.1 () {66 vars in 1372 bytes} [Tue Jan  4 15:49:57 2022] POST /contest/spectory/ => generated 6676 bytes in 557 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10845|app: 0|req: 3/13] 127.0.0.1 () {66 vars in 1372 bytes} [Tue Jan  4 15:49:59 2022] POST /contest/thinkyou/ => generated 3070 bytes in 140 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+GC녹십자웰빙 '나의 건강기능식품' 영상 공모전
+접수기간: 2021-12-31 ~ 2022-01-15
+-----------------------------------------------
+[제10회 서울구로국제어린이영화제] 학생단편 출품 공모안내
+접수기간: 2021-10-22 ~ 2022-02-14
+-----------------------------------------------
+광주 관광 디지털콘텐츠 공모전
+접수기간: 2022-02-07 ~ 2022-02-18
+-----------------------------------------------
+제8회 법령경연 학술대회
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+원자력 글로벌 아이디어 제안전
+접수기간: 2021-12-27 ~ 2022-02-06
+-----------------------------------------------
+제1회 콘텐츠 기획 아이디어 글로벌 공모전
+접수기간: 2022-01-21 ~ 2022-03-05
+-----------------------------------------------
+비대면 AI 인터뷰 공모전
+접수기간: 2021-12-15 ~ 2022-02-15
+-----------------------------------------------
+크레모아 아웃트로 제품디자인 콘테스트
+접수기간: 2021-12-06 ~ 2022-01-25
+-----------------------------------------------
+2021만화원작활성화공모전
+접수기간: 2021-12-27 ~ 2022-01-06
+-----------------------------------------------
+2021 용인시의사회 청소년 UCC 공모전
+접수기간: 2021-12-01 ~ 2022-01-15
+-----------------------------------------------
+[pid: 10846|app: 0|req: 11/14] 127.0.0.1 () {66 vars in 1372 bytes} [Tue Jan  4 15:50:00 2022] POST /contest/spectory/ => generated 6676 bytes in 768 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 12/15] 127.0.0.1 () {58 vars in 1177 bytes} [Tue Jan  4 15:50:08 2022] GET /button/ => generated 2019 bytes in 13 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 13/16] 127.0.0.1 () {58 vars in 1173 bytes} [Tue Jan  4 15:50:09 2022] GET /excelfile/ => generated 1936 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+Internal Server Error: /excelfile/
+Traceback (most recent call last):
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'excel'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "./app1/views.py", line 206, in timetable_upload
+    excel = request.FILES['excel']
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'excel'
+[pid: 10846|app: 0|req: 14/17] 127.0.0.1 () {66 vars in 1425 bytes} [Tue Jan  4 15:50:13 2022] POST /excelfile/ => generated 69396 bytes in 100 msecs (HTTP/1.1 500) 6 headers in 186 bytes (2 switches on core 0)
+[pid: 10845|app: 0|req: 4/18] 127.0.0.1 () {58 vars in 1170 bytes} [Tue Jan  4 15:54:26 2022] GET /button/ => generated 2019 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 15/19] 127.0.0.1 () {58 vars in 1167 bytes} [Tue Jan  4 15:54:49 2022] GET /select/ => generated 3184 bytes in 13 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+mon!
+[1830, 1500, 1030] [1930, 1700, 1200]
+tue!
+[1630, 1330] [1800, 1500]
+wed!
+[1630, 1330, 1030] [1800, 1500, 1200]
+thu!
+[1600] [1800]
+fri!
+[] []
+findfont: Font family ['Batang'] not found. Falling back to DejaVu Sans.
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 49884 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 49884 missing from current font.
+  font.set_text(s, 0, flags=flags)
+findfont: Font family ['Batang'] not found. Falling back to DejaVu Sans.
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44053 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 51032 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44036 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44277 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44053 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 51032 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44036 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44277 missing from current font.
+  font.set_text(s, 0, flags=flags)
+[pid: 10846|app: 0|req: 16/20] 127.0.0.1 () {66 vars in 1346 bytes} [Tue Jan  4 15:55:08 2022] POST /gongang/ => generated 776 bytes in 399 msecs (HTTP/1.1 200) 5 headers in 166 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 17/21] 127.0.0.1 () {58 vars in 1168 bytes} [Tue Jan  4 15:55:12 2022] GET /select/ => generated 3184 bytes in 73 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 18/22] 127.0.0.1 () {58 vars in 1153 bytes} [Tue Jan  4 15:55:14 2022] GET / => generated 1396 bytes in 12 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 19/23] 127.0.0.1 () {58 vars in 1160 bytes} [Tue Jan  4 15:55:15 2022] GET /button/ => generated 2019 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 20/24] 127.0.0.1 () {58 vars in 1173 bytes} [Tue Jan  4 15:55:17 2022] GET /excelfile/ => generated 1936 bytes in 8 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+[pid: 10846|app: 0|req: 21/25] 127.0.0.1 () {58 vars in 1167 bytes} [Tue Jan  4 15:55:20 2022] GET /select/ => generated 3184 bytes in 18 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 16:16:41 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561e9edb1d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./mysite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 27, in ready
+    self.module.autodiscover()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 24, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./app1/admin.py", line 4, in <module>
+    from .models import excel_db
+ImportError: cannot import name 'excel_db'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13085)
+spawned uWSGI worker 1 (pid: 13087, cores: 1)
+spawned uWSGI worker 2 (pid: 13088, cores: 1)
+spawned uWSGI worker 3 (pid: 13089, cores: 1)
+spawned uWSGI worker 4 (pid: 13090, cores: 1)
+spawned uWSGI worker 5 (pid: 13091, cores: 1)
+spawned uWSGI worker 6 (pid: 13092, cores: 1)
+spawned uWSGI worker 7 (pid: 13093, cores: 1)
+spawned uWSGI worker 8 (pid: 13094, cores: 1)
+spawned uWSGI worker 9 (pid: 13095, cores: 1)
+spawned uWSGI worker 10 (pid: 13096, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/1] 127.0.0.1 () {60 vars in 1191 bytes} [Tue Jan  4 16:16:43 2022] GET /button/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/2] 127.0.0.1 () {56 vars in 1106 bytes} [Tue Jan  4 16:16:47 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/3] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:16:52 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/4] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:16:55 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/5] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:16:55 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13096|app: -1|req: -1/6] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:17:13 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13095|app: -1|req: -1/7] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:17:14 2022] GET / => generated 21 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 16:18:05 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562b378bbd30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./mysite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 27, in ready
+    self.module.autodiscover()
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 24, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./app1/admin.py", line 4, in <module>
+    from .models import excel_db
+ImportError: cannot import name 'excel_db'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13580)
+spawned uWSGI worker 1 (pid: 13582, cores: 1)
+spawned uWSGI worker 2 (pid: 13583, cores: 1)
+spawned uWSGI worker 3 (pid: 13584, cores: 1)
+spawned uWSGI worker 4 (pid: 13585, cores: 1)
+spawned uWSGI worker 5 (pid: 13586, cores: 1)
+spawned uWSGI worker 6 (pid: 13587, cores: 1)
+spawned uWSGI worker 7 (pid: 13588, cores: 1)
+spawned uWSGI worker 8 (pid: 13589, cores: 1)
+spawned uWSGI worker 9 (pid: 13590, cores: 1)
+spawned uWSGI worker 10 (pid: 13591, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/1] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:12 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13590|app: -1|req: -1/2] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:12 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/3] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:13 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/4] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:13 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/5] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:13 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/6] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:13 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/7] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:18:14 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 13591|app: -1|req: -1/8] 127.0.0.1 () {58 vars in 1130 bytes} [Tue Jan  4 16:19:05 2022] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 16:20:32 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d3b1475d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55d3b1475d30 pid: 14076 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14076)
+spawned uWSGI worker 1 (pid: 14078, cores: 1)
+spawned uWSGI worker 2 (pid: 14079, cores: 1)
+spawned uWSGI worker 3 (pid: 14080, cores: 1)
+spawned uWSGI worker 4 (pid: 14081, cores: 1)
+spawned uWSGI worker 5 (pid: 14082, cores: 1)
+spawned uWSGI worker 6 (pid: 14083, cores: 1)
+spawned uWSGI worker 7 (pid: 14084, cores: 1)
+spawned uWSGI worker 8 (pid: 14085, cores: 1)
+spawned uWSGI worker 9 (pid: 14086, cores: 1)
+spawned uWSGI worker 10 (pid: 14087, cores: 1)
+[pid: 14087|app: 0|req: 1/1] 127.0.0.1 () {58 vars in 1137 bytes} [Tue Jan  4 16:20:36 2022] GET / => generated 1396 bytes in 1363 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 2/2] 127.0.0.1 () {58 vars in 1160 bytes} [Tue Jan  4 16:20:39 2022] GET /button/ => generated 2019 bytes in 18 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 3/3] 127.0.0.1 () {58 vars in 1173 bytes} [Tue Jan  4 16:20:40 2022] GET /excelfile/ => generated 1936 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+Not Found: /admin/app1/excel_db/
+[pid: 14087|app: 0|req: 4/4] 127.0.0.1 () {60 vars in 1246 bytes} [Tue Jan  4 16:20:43 2022] GET /admin/app1/excel_db/ => generated 4667 bytes in 26 msecs (HTTP/1.1 404) 6 headers in 173 bytes (2 switches on core 0)
+[pid: 14086|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 1118 bytes} [Tue Jan  4 16:20:46 2022] GET /admin/ => generated 6950 bytes in 1260 msecs (HTTP/1.1 200) 8 headers in 293 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 5/6] 127.0.0.1 () {58 vars in 1188 bytes} [Tue Jan  4 16:20:49 2022] GET /admin/app1/friend/ => generated 9169 bytes in 111 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 6/7] 127.0.0.1 () {54 vars in 995 bytes} [Tue Jan  4 16:20:49 2022] GET /admin/jsi18n/ => generated 3195 bytes in 16 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/openpyxl/styles/stylesheet.py:226: UserWarning: Workbook contains no default style, apply openpyxl's default
+  warn("Workbook contains no default style, apply openpyxl's default")
+[pid: 14087|app: 0|req: 7/8] 127.0.0.1 () {66 vars in 1427 bytes} [Tue Jan  4 16:20:58 2022] POST /excelfile/ => generated 1936 bytes in 43 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 8/9] 127.0.0.1 () {60 vars in 1219 bytes} [Tue Jan  4 16:20:59 2022] GET /admin/app1/friend/ => generated 9378 bytes in 92 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 14085|app: 0|req: 1/10] 127.0.0.1 () {54 vars in 995 bytes} [Tue Jan  4 16:21:00 2022] GET /admin/jsi18n/ => generated 3195 bytes in 1400 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 14085|app: 0|req: 2/11] 127.0.0.1 () {58 vars in 1222 bytes} [Tue Jan  4 16:21:02 2022] GET /admin/app1/friend/121/change/ => generated 9260 bytes in 127 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 9/12] 127.0.0.1 () {54 vars in 1006 bytes} [Tue Jan  4 16:21:02 2022] GET /admin/jsi18n/ => generated 3195 bytes in 12 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 10/13] 127.0.0.1 () {58 vars in 1170 bytes} [Tue Jan  4 16:21:05 2022] GET /button/ => generated 2019 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 11/14] 127.0.0.1 () {58 vars in 1167 bytes} [Tue Jan  4 16:21:06 2022] GET /select/ => generated 3315 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+mon!
+[1830, 1830, 1500, 1500, 1030, 1030] [1930, 1930, 1700, 1700, 1200, 1200]
+tue!
+[1630, 1630, 1330, 1330] [1800, 1800, 1500, 1500]
+wed!
+[1630, 1630, 1330, 1330, 1030, 1030] [1800, 1800, 1500, 1500, 1200, 1200]
+thu!
+[1600, 1600] [1800, 1800]
+fri!
+[] []
+findfont: Font family ['Batang'] not found. Falling back to DejaVu Sans.
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 49884 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 49884 missing from current font.
+  font.set_text(s, 0, flags=flags)
+findfont: Font family ['Batang'] not found. Falling back to DejaVu Sans.
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44053 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 51032 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44036 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:238: RuntimeWarning: Glyph 44277 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44053 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 51032 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44036 missing from current font.
+  font.set_text(s, 0, flags=flags)
+/home/hayeon/Everytime/everyTime/venv/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py:201: RuntimeWarning: Glyph 44277 missing from current font.
+  font.set_text(s, 0, flags=flags)
+[pid: 14086|app: 0|req: 2/15] 127.0.0.1 () {66 vars in 1346 bytes} [Tue Jan  4 16:21:09 2022] POST /gongang/ => generated 797 bytes in 345 msecs (HTTP/1.1 200) 5 headers in 166 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 12/16] 127.0.0.1 () {58 vars in 1211 bytes} [Tue Jan  4 16:21:17 2022] GET /admin/app1/friend/ => generated 9378 bytes in 95 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 13/17] 127.0.0.1 () {54 vars in 995 bytes} [Tue Jan  4 16:21:17 2022] GET /admin/jsi18n/ => generated 3195 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 14/18] 127.0.0.1 () {66 vars in 1379 bytes} [Tue Jan  4 16:21:26 2022] POST /admin/app1/friend/ => generated 5310 bytes in 68 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 15/19] 127.0.0.1 () {66 vars in 1379 bytes} [Tue Jan  4 16:21:27 2022] POST /admin/app1/friend/ => generated 0 bytes in 66 msecs (HTTP/1.1 302) 10 headers in 509 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 16/20] 127.0.0.1 () {60 vars in 1371 bytes} [Tue Jan  4 16:21:27 2022] GET /admin/app1/friend/ => generated 9311 bytes in 89 msecs (HTTP/1.1 200) 10 headers in 559 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 17/21] 127.0.0.1 () {54 vars in 995 bytes} [Tue Jan  4 16:21:27 2022] GET /admin/jsi18n/ => generated 3195 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 18/22] 127.0.0.1 () {58 vars in 1168 bytes} [Tue Jan  4 16:21:50 2022] GET /select/ => generated 3184 bytes in 15 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 14087|app: 0|req: 19/23] 127.0.0.1 () {58 vars in 1167 bytes} [Tue Jan  4 16:21:53 2022] GET /button/ => generated 2019 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 16:33:44 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a518917d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55a518917d30 pid: 14713 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14713)
+spawned uWSGI worker 1 (pid: 14715, cores: 1)
+spawned uWSGI worker 2 (pid: 14716, cores: 1)
+spawned uWSGI worker 3 (pid: 14717, cores: 1)
+spawned uWSGI worker 4 (pid: 14718, cores: 1)
+spawned uWSGI worker 5 (pid: 14719, cores: 1)
+spawned uWSGI worker 6 (pid: 14720, cores: 1)
+spawned uWSGI worker 7 (pid: 14721, cores: 1)
+spawned uWSGI worker 8 (pid: 14722, cores: 1)
+spawned uWSGI worker 9 (pid: 14723, cores: 1)
+spawned uWSGI worker 10 (pid: 14724, cores: 1)
+[pid: 14724|app: 0|req: 1/1] 127.0.0.1 () {58 vars in 1169 bytes} [Tue Jan  4 16:33:48 2022] GET /contest/ => generated 2013 bytes in 1297 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 14724|app: 0|req: 2/2] 127.0.0.1 () {66 vars in 1361 bytes} [Tue Jan  4 16:33:56 2022] POST /contest/wevity/ => generated 8943 bytes in 23108 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+Not Found: /contest/wevity/everyTime/static/loading.gif
+[pid: 14724|app: 0|req: 3/3] 127.0.0.1 () {54 vars in 1112 bytes} [Tue Jan  4 16:34:19 2022] GET /contest/wevity/everyTime/static/loading.gif => generated 4579 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Jan  4 16:37:32 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562f70d1ed30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x562f70d1ed30 pid: 15312 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 15312)
+spawned uWSGI worker 1 (pid: 15314, cores: 1)
+spawned uWSGI worker 2 (pid: 15315, cores: 1)
+spawned uWSGI worker 3 (pid: 15316, cores: 1)
+spawned uWSGI worker 4 (pid: 15317, cores: 1)
+spawned uWSGI worker 5 (pid: 15318, cores: 1)
+spawned uWSGI worker 6 (pid: 15319, cores: 1)
+spawned uWSGI worker 7 (pid: 15320, cores: 1)
+spawned uWSGI worker 8 (pid: 15321, cores: 1)
+spawned uWSGI worker 9 (pid: 15322, cores: 1)
+spawned uWSGI worker 10 (pid: 15323, cores: 1)
+[pid: 15323|app: 0|req: 1/1] 127.0.0.1 () {66 vars in 1368 bytes} [Tue Jan  4 16:37:46 2022] POST /contest/wevity/ => generated 9242 bytes in 13134 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+Not Found: /contest/wevity/everyTime/static/loading.gif
+[pid: 15323|app: 0|req: 2/2] 127.0.0.1 () {54 vars in 1112 bytes} [Tue Jan  4 16:37:59 2022] GET /contest/wevity/everyTime/static/loading.gif => generated 4579 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 15323|app: 0|req: 3/3] 127.0.0.1 () {58 vars in 1175 bytes} [Tue Jan  4 17:08:44 2022] GET /button/ => generated 2019 bytes in 27 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 15323|app: 0|req: 4/4] 127.0.0.1 () {58 vars in 1169 bytes} [Tue Jan  4 17:08:46 2022] GET /contest/ => generated 2013 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 15323|app: 0|req: 5/5] 127.0.0.1 () {66 vars in 1359 bytes} [Tue Jan  4 17:08:48 2022] POST /contest/wevity/ => generated 3546 bytes in 952 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+Not Found: /contest/wevity/everyTime/static/loading.gif
+[pid: 15323|app: 0|req: 6/6] 127.0.0.1 () {54 vars in 1112 bytes} [Tue Jan  4 17:08:49 2022] GET /contest/wevity/everyTime/static/loading.gif => generated 4579 bytes in 27 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.20 (64bit) on [Wed Jan  5 14:13:37 2022] ***
+compiled with version: 7.5.0 on 24 December 2021 17:37:04
+os: Linux-5.10.60.1-microsoft-standard-WSL2 #1 SMP Wed Aug 25 23:20:18 UTC 2021
+nodename: DESKTOP-KVV2EFG
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/hayeon/Everytime/everyTime/mysite
+detected binary path: /home/hayeon/Everytime/everyTime/venv/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/hayeon/Everytime/everyTime
+your processes number limit is 50265
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/hayeon/Everytime/everyTime/mysite/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Dec  8 2021, 21:08:43)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/hayeon/Everytime/everyTime/venv
+Set PythonHome to /home/hayeon/Everytime/everyTime/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x556e509d7d30
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x556e509d7d30 pid: 342 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 342)
+spawned uWSGI worker 1 (pid: 344, cores: 1)
+spawned uWSGI worker 2 (pid: 345, cores: 1)
+spawned uWSGI worker 3 (pid: 346, cores: 1)
+spawned uWSGI worker 4 (pid: 347, cores: 1)
+spawned uWSGI worker 5 (pid: 348, cores: 1)
+spawned uWSGI worker 6 (pid: 349, cores: 1)
+spawned uWSGI worker 7 (pid: 350, cores: 1)
+spawned uWSGI worker 8 (pid: 351, cores: 1)
+spawned uWSGI worker 9 (pid: 352, cores: 1)
+spawned uWSGI worker 10 (pid: 353, cores: 1)
+Wed Jan  5 14:13:55 2022 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request / (ip 127.0.0.1) !!!
+Wed Jan  5 14:13:55 2022 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET / (127.0.0.1)
+OSError: write error
+[pid: 352|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 997 bytes} [Wed Jan  5 14:13:47 2022] GET / => generated 0 bytes in 8143 msecs (HTTP/1.1 200) 6 headers in 0 bytes (1 switches on core 0)
+[pid: 353|app: 0|req: 1/2] 127.0.0.1 () {54 vars in 973 bytes} [Wed Jan  5 14:13:51 2022] GET / => generated 1377 bytes in 5473 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 2/3] 127.0.0.1 () {56 vars in 1023 bytes} [Wed Jan  5 14:13:58 2022] GET /login => generated 0 bytes in 5 msecs (HTTP/1.1 301) 5 headers in 175 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 3/4] 127.0.0.1 () {56 vars in 1025 bytes} [Wed Jan  5 14:13:58 2022] GET /login/ => generated 4302 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 352|app: 0|req: 4/5] 127.0.0.1 () {54 vars in 995 bytes} [Wed Jan  5 14:13:59 2022] GET /favicon.ico => generated 4483 bytes in 38 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 5/6] 127.0.0.1 () {66 vars in 1299 bytes} [Wed Jan  5 14:14:03 2022] POST /login/ => generated 0 bytes in 389 msecs (HTTP/1.1 302) 9 headers in 514 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 6/7] 127.0.0.1 () {60 vars in 1197 bytes} [Wed Jan  5 14:14:03 2022] GET /button/ => generated 2019 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 7/8] 127.0.0.1 () {58 vars in 1165 bytes} [Wed Jan  5 14:14:07 2022] GET /select => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 176 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 8/9] 127.0.0.1 () {58 vars in 1167 bytes} [Wed Jan  5 14:14:07 2022] GET /select/ => generated 3184 bytes in 31 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 9/10] 127.0.0.1 () {56 vars in 1116 bytes} [Wed Jan  5 14:14:30 2022] GET /admin => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 175 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 10/11] 127.0.0.1 () {56 vars in 1118 bytes} [Wed Jan  5 14:14:30 2022] GET /admin/ => generated 6943 bytes in 264 msecs (HTTP/1.1 200) 8 headers in 293 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 11/12] 127.0.0.1 () {58 vars in 1167 bytes} [Wed Jan  5 14:14:33 2022] GET /select/ => generated 3184 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 12/13] 127.0.0.1 () {58 vars in 1167 bytes} [Wed Jan  5 14:14:35 2022] GET /contest => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 177 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 13/14] 127.0.0.1 () {58 vars in 1169 bytes} [Wed Jan  5 14:14:35 2022] GET /contest/ => generated 2013 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 14/15] 127.0.0.1 () {58 vars in 1171 bytes} [Wed Jan  5 14:14:41 2022] GET /excelfile => generated 0 bytes in 3 msecs (HTTP/1.1 301) 5 headers in 179 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 15/16] 127.0.0.1 () {58 vars in 1173 bytes} [Wed Jan  5 14:14:41 2022] GET /excelfile/ => generated 1936 bytes in 11 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 16/17] 127.0.0.1 () {58 vars in 1188 bytes} [Wed Jan  5 14:14:43 2022] GET /admin/app1/friend/ => generated 9169 bytes in 254 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 17/18] 127.0.0.1 () {54 vars in 995 bytes} [Wed Jan  5 14:14:43 2022] GET /admin/jsi18n/ => generated 3195 bytes in 31 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 18/19] 127.0.0.1 () {58 vars in 1168 bytes} [Wed Jan  5 14:14:49 2022] GET /button => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 176 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 19/20] 127.0.0.1 () {58 vars in 1170 bytes} [Wed Jan  5 14:14:49 2022] GET /button/ => generated 2019 bytes in 14 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 20/21] 127.0.0.1 () {58 vars in 1169 bytes} [Wed Jan  5 14:14:50 2022] GET /contest/ => generated 2013 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 21/22] 127.0.0.1 () {58 vars in 1168 bytes} [Wed Jan  5 14:14:52 2022] GET /button/ => generated 2019 bytes in 20 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 22/23] 127.0.0.1 () {58 vars in 1169 bytes} [Wed Jan  5 14:14:53 2022] GET /contest/ => generated 2013 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+2022년 워터 웹시네마 단편영화제 공모전
+접수기간: 2021-12-20 ~ 2022-02-21
+-----------------------------------------------
+2022 애니툰 1월 웹툰 공모전
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+[pid: 352|app: 0|req: 23/24] 127.0.0.1 () {66 vars in 1365 bytes} [Wed Jan  5 14:14:59 2022] POST /contest/spectory/ => generated 3568 bytes in 770 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 24/25] 127.0.0.1 () {66 vars in 1370 bytes} [Wed Jan  5 14:15:04 2022] POST /contest/wevity/ => generated 8758 bytes in 12059 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+Not Found: /contest/wevity/everyTime/static/loading.gif
+[pid: 352|app: 0|req: 25/26] 127.0.0.1 () {54 vars in 1112 bytes} [Wed Jan  5 14:15:16 2022] GET /contest/wevity/everyTime/static/loading.gif => generated 4579 bytes in 25 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+2022년 워터 웹시네마 단편영화제 공모전
+접수기간: 2021-12-20 ~ 2022-02-21
+-----------------------------------------------
+2022 애니툰 1월 웹툰 공모전
+접수기간: 2022-01-01 ~ 2022-01-31
+-----------------------------------------------
+[pid: 352|app: 0|req: 26/27] 127.0.0.1 () {66 vars in 1374 bytes} [Wed Jan  5 14:15:49 2022] POST /contest/spectory/ => generated 3568 bytes in 472 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 27/28] 127.0.0.1 () {66 vars in 1374 bytes} [Wed Jan  5 14:15:57 2022] POST /contest/thinkyou/ => generated 3320 bytes in 8825 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 28/29] 127.0.0.1 () {66 vars in 1374 bytes} [Wed Jan  5 14:16:13 2022] POST /contest/spectory/ => generated 3003 bytes in 239 msecs (HTTP/1.1 200) 5 headers in 167 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 29/30] 127.0.0.1 () {58 vars in 1177 bytes} [Wed Jan  5 14:17:21 2022] GET /button/ => generated 2019 bytes in 27 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 30/31] 127.0.0.1 () {58 vars in 1163 bytes} [Wed Jan  5 14:17:22 2022] GET /crawl => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 175 bytes (2 switches on core 0)
+백하연
+3
+4
+5
+6
+7
+8
+10
+11
+a
+b
+김가령
+c
+이미 존재
+김채연
+c
+이미 존재
+백인화
+c
+이미 존재
+설예은
+c
+이미 존재
+오신영
+c
+이미 존재
+유정수
+c
+이미 존재
+유지영
+c
+이미 존재
+이상은
+c
+이미 존재
+이은경
+c
+이미 존재
+이진웅
+c
+이미 존재
+[pid: 352|app: 0|req: 31/32] 127.0.0.1 () {58 vars in 1165 bytes} [Wed Jan  5 14:17:22 2022] GET /crawl/ => generated 2240 bytes in 25111 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 32/33] 127.0.0.1 () {58 vars in 1222 bytes} [Wed Jan  5 14:18:13 2022] GET /admin/app1/friend/120/change/ => generated 9260 bytes in 247 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 33/34] 127.0.0.1 () {54 vars in 1006 bytes} [Wed Jan  5 14:18:14 2022] GET /admin/jsi18n/ => generated 3195 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 34/35] 127.0.0.1 () {58 vars in 1172 bytes} [Wed Jan  5 14:18:23 2022] GET /excelfile/ => generated 1936 bytes in 6 msecs (HTTP/1.1 200) 7 headers in 349 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 35/36] 127.0.0.1 () {58 vars in 1152 bytes} [Wed Jan  5 14:18:56 2022] GET / => generated 1396 bytes in 38 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 352|app: 0|req: 36/37] 127.0.0.1 () {58 vars in 1160 bytes} [Wed Jan  5 14:18:57 2022] GET /button/ => generated 2019 bytes in 25 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+백하연
+3
+4
+5
+6
+[pid: 353|app: 0|req: 2/38] 127.0.0.1 () {60 vars in 1253 bytes} [Wed Jan  5 14:19:13 2022] GET /admin/app1/friend/120/change/ => generated 9260 bytes in 231 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 353|app: 0|req: 3/39] 127.0.0.1 () {54 vars in 1006 bytes} [Wed Jan  5 14:19:13 2022] GET /admin/jsi18n/ => generated 3195 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+[pid: 353|app: 0|req: 4/40] 127.0.0.1 () {58 vars in 1211 bytes} [Wed Jan  5 14:19:14 2022] GET /admin/app1/friend/ => generated 9169 bytes in 241 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+7
+8
+[pid: 353|app: 0|req: 5/41] 127.0.0.1 () {54 vars in 995 bytes} [Wed Jan  5 14:19:14 2022] GET /admin/jsi18n/ => generated 3195 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+10
+[pid: 353|app: 0|req: 6/42] 127.0.0.1 () {60 vars in 1242 bytes} [Wed Jan  5 14:19:15 2022] GET /admin/app1/friend/ => generated 9169 bytes in 240 msecs (HTTP/1.1 200) 9 headers in 461 bytes (2 switches on core 0)
+[pid: 353|app: 0|req: 7/43] 127.0.0.1 () {54 vars in 995 bytes} [Wed Jan  5 14:19:15 2022] GET /admin/jsi18n/ => generated 3195 bytes in 18 msecs (HTTP/1.1 200) 6 headers in 189 bytes (2 switches on core 0)
+11
+a
+b
+김가령
+c
+이미 존재
+김채연
+c
+이미 존재
+백인화
+c
+이미 존재
+설예은
+c
+이미 존재
+오신영
+c
+이미 존재
+유정수
+c
+이미 존재
+유지영
+c
+이미 존재
+이상은
+c
+이미 존재
+이은경
+c
+이미 존재
+이진웅
+c
+이미 존재
+[pid: 352|app: 0|req: 37/44] 127.0.0.1 () {58 vars in 1165 bytes} [Wed Jan  5 14:18:59 2022] GET /crawl/ => generated 2240 bytes in 22892 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+백하연
+3
+4
+5
+6
+7
+8
+10
+11
+a
+b
+김가령
+c
+이미 존재
+김채연
+c
+이미 존재
+백인화
+c
+이미 존재
+설예은
+c
+이미 존재
+오신영
+c
+이미 존재
+유정수
+c
+이미 존재
+유지영
+c
+이미 존재
+이상은
+c
+이미 존재
+이은경
+c
+이미 존재
+이진웅
+c
+이미 존재
+[pid: 352|app: 0|req: 38/45] 127.0.0.1 () {60 vars in 1196 bytes} [Wed Jan  5 14:19:23 2022] GET /crawl/ => generated 2240 bytes in 22874 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)

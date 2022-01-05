@@ -7,7 +7,7 @@ from argon2 import PasswordHasher
 from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 import pandas as pd
-from .models import member, friend, excel_db
+from .models import member, friend
 import rsa
 @csrf_exempt
 def index(request):
@@ -248,12 +248,18 @@ def timetable_upload(request):
         #print(name)
         #print(user_name)
         #DB=excel_db(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
-        DB=friend(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
-        DB.save()
-        return render(request, "excel.html")
+        try:
+            existDB=friend.objects.get(my_name=name)
+            messages.warning(request,"이미 등록된 이름입니다!")
+            return render(request,"excel.html")
+            return
+        except:
+            DB=friend(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
+            DB.save()
+            return render(request, "excel.html")
 
     elif 'submit' in request.POST:
-        return redirect("/gongang2")
+        return redirect("/gongang")
     # 값만 저장. 페이지 이동이 아니라.
     # DB에 잘 들어갔는지 확인하기
 
@@ -279,14 +285,5 @@ def gongang(request):
 
 def logout(request):
     print(request.session['name'])
-    try:
-        #로그인했던 ID로 저장된 excel DB들 삭제
-        record=excel_db.objects.filter(my_name=request.session['name'])
-        record.delete()
-        auth.logout(request)
-        print("deleted success!")
-    except:
-        auth.logout(request)
-        print("NO Excel file!")
-
+    auth.logout(request)
     return redirect('/')

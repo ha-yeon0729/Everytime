@@ -269,7 +269,7 @@ def gongang(request):
             plt.savefig('/home/hayeon/Everytime/everyTime/static/example.png', facecolor='#eeeeee', dpi=140, pad_inches=0.3)  # 예시) 'C:/example.png' )
             return render(request,"gongang.html",{'select':selected})
         except:
-            messages.warning(request,"오류가 발생했습니다! 친구를 1명 이상 선택해주세요123123")
+            messages.warning(request,"오류가 발생했습니다! 친구를 1명 이상 선택해주세요")
             return render(request,"select.html")
     return render(request, "fail.html")
 #####################출력하는법########################

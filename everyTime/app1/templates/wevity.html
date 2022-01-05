@@ -10,6 +10,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        #load{
+            position: absolute;
+            width:100%;
+            height:100%;
+            background:white;s
+        }
         body{
             background-color: #FCF6F5;
         }
@@ -31,6 +37,17 @@
     </style>
 </head>
 <body style="font-family: 'EliceDigitalBaeum_Bold'">
+<div id="load">
+    <img src="everyTime/static/loading.gif" alt="loading">
+</div>
+<script type="text/javascript">
+    window.onbeforeunload = function () {
+        $('#load').show();
+    }
+        $(window).load(function(){
+        $('#load').hide();
+    });
+</script>
     <nav>
     <a class="font-color" href="/" >처음으로</a>
     <a class="font-color" href="/button">선택하기</a>
@@ -45,19 +62,19 @@
     <form method="POST" action="/contest/wevity/">
         <h1>찾고 싶은 공모전을 입력해주세요!</h1>
         <p><input type="text" name="search">
-        <button type="submit" class="btn btn-danger">위비티</button>
+        <button type="submit" class="btn btn-danger" style="font-size: medium;">위비티</button>
         </p>
     </form>
 
     <form method="POST" action="/contest/thinkyou/">
         <p><input type="text" name="search">
-        <button type="submit" class="btn btn-warning">씽유</button>
+        <button type="submit" class="btn btn-warning" style="font-size: medium;">씽유</button>
         </p>
     </form>
 
     <form method="POST" action="/contest/spectory/">
         <p><input type="text" name="search">
-        <button type="submit" class="btn btn-success">스펙토리</button>
+        <button type="submit" class="btn btn-success" style="font-size: medium;">스펙토리</button>
         </p>
     </form>
     <h1 class="wevity">위비티</h1>

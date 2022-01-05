@@ -25,16 +25,3 @@ class friend(models.Model):
 
     def __str__(self):
         return f'{self.pk}. {self.friend_name}'
-
-
-class excel_db(models.Model):
-    my_name = models.CharField(max_length=20,null=True,default='')
-    friend_name = models.CharField(max_length=20,null=True,default='')
-    mon = models.CharField(max_length=50,null=True,default='')
-    tue = models.CharField(max_length=50,null=True,default='')
-    wed = models.CharField(max_length=50,null=True,default='')
-    thu = models.CharField(max_length=50,null=True,default='')
-    fri = models.CharField(max_length=50,null=True,default='')
-
-    def __str__(self):
-        return f'{self.pk}. {self.friend_name}'

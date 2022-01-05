@@ -1,5 +1,5 @@
 from django.urls import path
-from .import views, contest_views, gongang2_views
+from .import views, contest_views
 from .import crawl_views
 from .import gongang_views
 
@@ -13,7 +13,6 @@ urlpatterns=[
     path('signup/', views.signup, name='signup'),
     path('findpw/',views.findpw,name='findpw'),
     path('gongang/', gongang_views.gongang, name='gongang'),
-    path('gongang2/', gongang2_views.gongang2, name='gongang2'),
     path('logout/', views.logout, name='logout'),
     path('contest/', contest_views.contest, name='contest'),
     path('contest/wevity/', contest_views.wevity, name='wevity'),

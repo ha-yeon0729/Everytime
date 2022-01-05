@@ -371,7 +371,7 @@ def crawling(request):
             user_cnt += 1
 
             messages.error(request, '에브리타임에서 시간표를 자동으로 불러왔습니다!')
-            return render(request, "button.html")
+            return redirect("crawl")
     else:
         messages.error(request, '로그인을 해주세요!')
         return render(request, "login.html")
