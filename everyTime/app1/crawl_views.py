@@ -2,9 +2,9 @@ import rsa,re
 import pandas as pd
 from bs4 import BeautifulSoup
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from selenium import webdriver
-from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 import random
 import math
@@ -13,8 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def crawling(request):
-    if request.session['name']:
-        print(request.session['name'])
+    if request.user.is_authenticated:
+
         # 계산 시 사용할 상수
         const = 0.8333333333333333333
 
@@ -370,8 +370,8 @@ def crawling(request):
 
             user_cnt += 1
 
-            messages.error(request, '에브리타임에서 시간표를 자동으로 불러왔습니다!')
-            return redirect("crawl")
+            messages.warning(request, '에브리타임에서 시간표를 자동으로 불러왔습니다!')
+            return redirect("button")
     else:
-        messages.error(request, '로그인을 해주세요!')
-        return render(request, "login.html")
+        messages.warning(request, '로그인을 해주세요!')
+        return redirect("login")

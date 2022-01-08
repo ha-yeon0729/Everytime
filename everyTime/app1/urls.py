@@ -2,6 +2,13 @@ from django.urls import path
 from .import views, contest_views
 from .import crawl_views
 from .import gongang_views
+from .import error_views
+from django.conf.urls import(
+    handler404,handler500
+)
+
+handler404=error_views.page_not_found
+handler500=error_views.server_error
 
 urlpatterns=[
     path('',views.index),

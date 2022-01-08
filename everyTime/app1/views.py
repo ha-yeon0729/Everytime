@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from time import sleep
 import pandas as pd
 from .models import member, friend
-import rsa
+
 @csrf_exempt
 def index(request):
     return render(request,"index.html")
@@ -62,24 +62,26 @@ def button(request):
     try:
         check=request.session['name']
         if check is not None:
-            return render(request,"button.html",{'name':check,})
+            return render(request,"button.html",{'name':check})
     except:
         return redirect("/login")
 #-------------------------------------------------------
 @csrf_exempt
 def select(request):
-    name = request.session['name'] #12/29 주석 처리.
-    friends=friend.objects.filter(my_name=name) #12/29 주석 처리.
+    if request.user.is_authenticated:
+        name = request.session['name'] #12/29 주석 처리.
+        friends=friend.objects.filter(my_name=name) #12/29 주석 처리.
 
-    #if request.method=="POST":
-        #return redirect('crawl')
+        #if request.method=="POST":
+            #return redirect('crawl')
 
-    if name: #12/29 주석 처리.
-        #Id.ssgId 하면 member DB의 ssgId(FG 아이디) 가 나오고, Id.ssgPw하면 DB의 FG비번이 나온다.
-        #그냥 ID만 쓰면 제일 첫번째 값인 etaId가 나온다.
-        return render(request, 'select.html', {'name': name, 'friends': friends, }) #12/29 주석 처리.
+        if name: #12/29 주석 처리.
+            #Id.ssgId 하면 member DB의 ssgId(FG 아이디) 가 나오고, Id.ssgPw하면 DB의 FG비번이 나온다.
+            #그냥 ID만 쓰면 제일 첫번째 값인 etaId가 나온다.
+            return render(request, 'select.html', {'name': name, 'friends': friends, }) #12/29 주석 처리.
 
-    #return redirect('button')
+    else:
+        return redirect('login')
 @csrf_exempt
 def signup(request):
 
@@ -172,24 +174,32 @@ def findpw(request):
 
         if ssgpw==ressgpw:
             try:
+                print(1)
                 member_db=member.objects.get(name=name,etaId=etaid,etaPw=etapw)
-                member_db.ssgPw=ssgpw
+                print(2)
+                member_db.ssgPw=PasswordHasher().hash(ssgpw)
+                print(3)
                 member_db.save()
-
-                user_db=User.objects.get(username=name)
+                print(4)
+                user_db=User.objects.get(username=member_db.ssgId)
+                print(5)
                 user_db.set_password(ssgpw)
+                print(6)
                 user_db.save()
+                print(7)
                 return redirect("/login")
             except:
-                messages.warning(request, "정확한 정보를 입력해주세요.")
+                messages.warning(request, "정확한 정보를 입력해주세요123.")
                 return render(request,"findpw.html")
         else:
-            messages.warning(request,"정확한 정보를 입력해주세요.")
+            messages.warning(request,"정확한 정보를 입력해주세요.234")
             return render(request, "findpw.html")
 
     return render(request,"findpw.html")
 @csrf_exempt
 def timetable_upload(request):
+    if request.user.is_authenticated is False:
+        return redirect("login")
     if 'upload' in request.POST:
         def class_array(class_day, class_time):
             if class_day == '월':
@@ -252,11 +262,12 @@ def timetable_upload(request):
             existDB=friend.objects.get(my_name=name)
             messages.warning(request,"이미 등록된 이름입니다!")
             return render(request,"excel.html")
-            return
+            
         except:
             DB=friend(my_name=name,friend_name=user_name,mon=mon,tue=tue,wed=wed,thu=thur,fri=fri)
             DB.save()
-            return render(request, "excel.html")
+            messages.warning(request, "성공적으로 업로드 하였습니다!")
+            return redirect("excel")
 
     elif 'submit' in request.POST:
         return redirect("/gongang")

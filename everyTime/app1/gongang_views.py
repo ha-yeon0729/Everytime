@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.ticker as ticker
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import friend
@@ -8,14 +7,13 @@ import ast
 
 # 한글 폰트 사용을 위해서 세팅(그래프에서 한글 깨짐을 방지)
 from matplotlib import font_manager, rc
-
 from django.contrib import messages
 
 @csrf_exempt
 def gongang(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated and request.method == 'POST':
         #폰트 경로
-        font_path = "/mnt/c/Windows/Fonts/batang.ttc"
+        font_path = "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf"
         #폰트 적용
         font = font_manager.FontProperties(fname=font_path).get_name()
         rc('font', family=font)

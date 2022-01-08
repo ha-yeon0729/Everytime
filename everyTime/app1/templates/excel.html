@@ -31,7 +31,11 @@
     <a class="font-color" href="/button" >방법다시선택하기</a>
     <a href="/logout" class="font-color">로그아웃</a>
     </nav>
-
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
 <form action="../excelfile/" method="POST" enctype="multipart/form-data" value="upload">
 {% csrf_token %}
     <div class="round-box">

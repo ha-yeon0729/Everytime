@@ -11,12 +11,15 @@ from datetime import datetime
 #공모전 기본 페이지
 @csrf_exempt
 def contest(request):
-    return render(request,"contest.html")
+    if request.user.is_authenticated:
+        return render(request,"contest.html")
+    else:
+        return redirect('login')
 
 # 위비티 버튼을 클릭했다면
 @csrf_exempt
 def wevity(request):
-    if request.method=="POST":
+    if request.user.is_authenticated and request.method=="POST":
         flag = 0
         #공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
         List=[]
@@ -123,7 +126,7 @@ def wevity(request):
 # 씽유 버튼을 클릭했다면
 @csrf_exempt
 def thinkyou(request):
-    if request.method=='POST':
+    if request.user.is_authenticated and request.method == 'POST':
         flag = 0
 
         # 공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
@@ -207,7 +210,7 @@ def thinkyou(request):
 #스펙토리 버튼을 클릭했다면
 @csrf_exempt
 def spectory(request):
-    if request.method=='POST':
+    if request.user.is_authenticated and request.method=='POST':
         flag = 0
         # 공모전 정보들을 배열로 저장(request 날릴 때 한번에 하기 위함.)-하연
         List = []
