@@ -4,12 +4,12 @@
 
 ### **로그인**
 ![3 로그인성공](https://github.com/user-attachments/assets/f66fc19a-9eee-446f-921e-47832009cac8)
-[영상](https://github.com/user-attachments/assets/9841aa10-929c-46e2-80e4-67ca1c8f31640)
+[영상](https://github.com/user-attachments/assets/3b29296e-9471-457e-9965-3501e916602b)
 
 
 ### **공강시간 구하기**
 ![8 공강시간여러명그래프](https://github.com/user-attachments/assets/09f175ab-d69f-444a-83d3-06558ffb78ec)
-[영상](https://github.com/user-attachments/assets/85c23ee3-2993-4467-995f-23e5dedab47a)
+[영상](https://github.com/user-attachments/assets/19d3ec59-b84b-4df5-99ec-281d9d169d23)
 
 
 ### **공모전 검색**
